@@ -9,7 +9,6 @@ namespace Game_Of_Life
     public class GameOfLife
     {
         public static int[,] simulationBoard;
-        public static int[,] cacheBoard;                // Copy of simulationBoard
         internal static bool hasInitialized = false;
 
         /// <summary>
@@ -40,7 +39,6 @@ namespace Game_Of_Life
 
             // Init arrays
             simulationBoard = new int[x_length, y_length];
-            cacheBoard = simulationBoard;
 
             Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine("[i] A simulation board with size '{0}' x '{1}' has been initialized.", x_length, y_length);
