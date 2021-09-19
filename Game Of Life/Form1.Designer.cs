@@ -49,7 +49,7 @@ namespace Game_Of_Life
             // label_boardDimensionsHead
             // 
             this.label_boardDimensionsHead.AutoSize = true;
-            this.label_boardDimensionsHead.Location = new System.Drawing.Point(298, 163);
+            this.label_boardDimensionsHead.Location = new System.Drawing.Point(12, 9);
             this.label_boardDimensionsHead.Name = "label_boardDimensionsHead";
             this.label_boardDimensionsHead.Size = new System.Drawing.Size(111, 13);
             this.label_boardDimensionsHead.TabIndex = 0;
@@ -57,7 +57,7 @@ namespace Game_Of_Life
             // 
             // but_applyBoardDimensions
             // 
-            this.but_applyBoardDimensions.Location = new System.Drawing.Point(301, 205);
+            this.but_applyBoardDimensions.Location = new System.Drawing.Point(15, 51);
             this.but_applyBoardDimensions.Name = "but_applyBoardDimensions";
             this.but_applyBoardDimensions.Size = new System.Drawing.Size(75, 23);
             this.but_applyBoardDimensions.TabIndex = 1;
@@ -69,7 +69,7 @@ namespace Game_Of_Life
             // label_boardDimensionsDelimiter
             // 
             this.label_boardDimensionsDelimiter.AutoSize = true;
-            this.label_boardDimensionsDelimiter.Location = new System.Drawing.Point(341, 183);
+            this.label_boardDimensionsDelimiter.Location = new System.Drawing.Point(55, 29);
             this.label_boardDimensionsDelimiter.Name = "label_boardDimensionsDelimiter";
             this.label_boardDimensionsDelimiter.Size = new System.Drawing.Size(14, 13);
             this.label_boardDimensionsDelimiter.TabIndex = 2;
@@ -78,7 +78,7 @@ namespace Game_Of_Life
             // input_boardDimensionX
             // 
             this.input_boardDimensionX.Cursor = System.Windows.Forms.Cursors.Default;
-            this.input_boardDimensionX.Location = new System.Drawing.Point(301, 179);
+            this.input_boardDimensionX.Location = new System.Drawing.Point(15, 25);
             this.input_boardDimensionX.Name = "input_boardDimensionX";
             this.input_boardDimensionX.Size = new System.Drawing.Size(38, 20);
             this.input_boardDimensionX.TabIndex = 5;
@@ -90,7 +90,7 @@ namespace Game_Of_Life
             // 
             // input_boardDimensionY
             // 
-            this.input_boardDimensionY.Location = new System.Drawing.Point(359, 180);
+            this.input_boardDimensionY.Location = new System.Drawing.Point(73, 26);
             this.input_boardDimensionY.Name = "input_boardDimensionY";
             this.input_boardDimensionY.Size = new System.Drawing.Size(38, 20);
             this.input_boardDimensionY.TabIndex = 6;
@@ -103,7 +103,7 @@ namespace Game_Of_Life
             // but_populateBoard
             // 
             this.but_populateBoard.Enabled = false;
-            this.but_populateBoard.Location = new System.Drawing.Point(301, 234);
+            this.but_populateBoard.Location = new System.Drawing.Point(15, 80);
             this.but_populateBoard.Name = "but_populateBoard";
             this.but_populateBoard.Size = new System.Drawing.Size(75, 23);
             this.but_populateBoard.TabIndex = 7;
@@ -115,7 +115,7 @@ namespace Game_Of_Life
             // but_showSimulationBoard
             // 
             this.but_showSimulationBoard.Enabled = false;
-            this.but_showSimulationBoard.Location = new System.Drawing.Point(301, 263);
+            this.but_showSimulationBoard.Location = new System.Drawing.Point(15, 109);
             this.but_showSimulationBoard.Name = "but_showSimulationBoard";
             this.but_showSimulationBoard.Size = new System.Drawing.Size(75, 23);
             this.but_showSimulationBoard.TabIndex = 8;
@@ -127,7 +127,7 @@ namespace Game_Of_Life
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(298, 331);
+            this.label1.Location = new System.Drawing.Point(12, 144);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(92, 13);
             this.label1.TabIndex = 9;
@@ -136,7 +136,7 @@ namespace Game_Of_Life
             // but_simulationAdvance
             // 
             this.but_simulationAdvance.Enabled = false;
-            this.but_simulationAdvance.Location = new System.Drawing.Point(301, 347);
+            this.but_simulationAdvance.Location = new System.Drawing.Point(15, 160);
             this.but_simulationAdvance.Name = "but_simulationAdvance";
             this.but_simulationAdvance.Size = new System.Drawing.Size(75, 23);
             this.but_simulationAdvance.TabIndex = 10;
@@ -148,7 +148,7 @@ namespace Game_Of_Life
             // label_bornCellsHead
             // 
             this.label_bornCellsHead.AutoSize = true;
-            this.label_bornCellsHead.Location = new System.Drawing.Point(300, 389);
+            this.label_bornCellsHead.Location = new System.Drawing.Point(14, 202);
             this.label_bornCellsHead.Name = "label_bornCellsHead";
             this.label_bornCellsHead.Size = new System.Drawing.Size(55, 13);
             this.label_bornCellsHead.TabIndex = 11;
@@ -157,7 +157,7 @@ namespace Game_Of_Life
             // label_cellBirthsValue
             // 
             this.label_cellBirthsValue.AutoSize = true;
-            this.label_cellBirthsValue.Location = new System.Drawing.Point(358, 389);
+            this.label_cellBirthsValue.Location = new System.Drawing.Point(72, 202);
             this.label_cellBirthsValue.Name = "label_cellBirthsValue";
             this.label_cellBirthsValue.Size = new System.Drawing.Size(13, 13);
             this.label_cellBirthsValue.TabIndex = 12;
@@ -166,7 +166,7 @@ namespace Game_Of_Life
             // label_cellDeathsValue
             // 
             this.label_cellDeathsValue.AutoSize = true;
-            this.label_cellDeathsValue.Location = new System.Drawing.Point(358, 402);
+            this.label_cellDeathsValue.Location = new System.Drawing.Point(72, 215);
             this.label_cellDeathsValue.Name = "label_cellDeathsValue";
             this.label_cellDeathsValue.Size = new System.Drawing.Size(13, 13);
             this.label_cellDeathsValue.TabIndex = 14;
@@ -175,7 +175,7 @@ namespace Game_Of_Life
             // label_cellDeathsHead
             // 
             this.label_cellDeathsHead.AutoSize = true;
-            this.label_cellDeathsHead.Location = new System.Drawing.Point(300, 402);
+            this.label_cellDeathsHead.Location = new System.Drawing.Point(14, 215);
             this.label_cellDeathsHead.Name = "label_cellDeathsHead";
             this.label_cellDeathsHead.Size = new System.Drawing.Size(62, 13);
             this.label_cellDeathsHead.TabIndex = 13;
@@ -185,7 +185,7 @@ namespace Game_Of_Life
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(126, 240);
             this.Controls.Add(this.label_cellDeathsValue);
             this.Controls.Add(this.label_cellDeathsHead);
             this.Controls.Add(this.label_cellBirthsValue);
