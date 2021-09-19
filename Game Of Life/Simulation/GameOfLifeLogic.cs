@@ -7,8 +7,8 @@ using static Game_Of_Life.GameOfLife;
 
 namespace Game_Of_Life.Simulation {
     public class GameOfLifeLogic {
+        private static int[,] cacheBoard;       // Copy of simulationBoard
         public static bool simulationState;     // State of simulation
-        private static int[,] cacheBoard;                // Copy of simulationBoard
         public static int generation;           // Current generation
         public static int cellMutations;        // Cell update count
         public static int cellDeaths;
