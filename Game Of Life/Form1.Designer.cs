@@ -34,6 +34,7 @@ namespace Game_Of_Life
             this.label_boardDimensionsDelimiter = new System.Windows.Forms.Label();
             this.input_boardDimensionX = new System.Windows.Forms.NumericUpDown();
             this.input_boardDimensionY = new System.Windows.Forms.NumericUpDown();
+            this.but_populateBoard = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.input_boardDimensionX)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.input_boardDimensionY)).BeginInit();
             this.SuspendLayout();
@@ -92,11 +93,24 @@ namespace Game_Of_Life
             0,
             0});
             // 
+            // but_populateBoard
+            // 
+            this.but_populateBoard.Enabled = false;
+            this.but_populateBoard.Location = new System.Drawing.Point(301, 280);
+            this.but_populateBoard.Name = "but_populateBoard";
+            this.but_populateBoard.Size = new System.Drawing.Size(75, 23);
+            this.but_populateBoard.TabIndex = 7;
+            this.but_populateBoard.Text = "Populate";
+            this.but_populateBoard.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.but_populateBoard.UseVisualStyleBackColor = true;
+            this.but_populateBoard.Click += new System.EventHandler(this.but_populateBoard_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.but_populateBoard);
             this.Controls.Add(this.input_boardDimensionY);
             this.Controls.Add(this.input_boardDimensionX);
             this.Controls.Add(this.label_boardDimensionsDelimiter);
@@ -118,6 +132,7 @@ namespace Game_Of_Life
         private System.Windows.Forms.Label label_boardDimensionsDelimiter;
         private System.Windows.Forms.NumericUpDown input_boardDimensionX;
         private System.Windows.Forms.NumericUpDown input_boardDimensionY;
+        private System.Windows.Forms.Button but_populateBoard;
     }
 }
 

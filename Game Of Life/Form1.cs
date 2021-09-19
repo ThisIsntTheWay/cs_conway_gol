@@ -12,8 +12,7 @@ namespace Game_Of_Life
 {
     public partial class Form1 : Form
     {
-        public Form1()
-        {
+        public Form1() {
             InitializeComponent();
         }
 
@@ -22,6 +21,14 @@ namespace Game_Of_Life
             int y = Convert.ToInt32(input_boardDimensionY.Value);
 
             GameOfLife.setBoardSize(x, y);
+            
+            if (!but_populateBoard.Enabled) {
+                but_populateBoard.Enabled = true;
+            }
+        }
+
+        private void but_populateBoard_Click(object sender, EventArgs e) {
+            GameOfLife.populateBoardRandom();
         }
     }
 }
