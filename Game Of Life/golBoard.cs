@@ -19,6 +19,7 @@ namespace Game_Of_Life {
         private void golBoard_Load(object sender, EventArgs e) {}
 
         public void updateCanvas() {
+            Console.WriteLine("[i] Updating golBoard...");
             this.Paint += Draw2DArray;
         }
 
