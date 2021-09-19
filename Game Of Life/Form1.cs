@@ -6,7 +6,10 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
 using System.Windows.Forms;
+
+using Game_Of_Life.Simulation;
 
 namespace Game_Of_Life
 {
@@ -24,6 +27,7 @@ namespace Game_Of_Life
             
             if (!but_populateBoard.Enabled) {
                 but_populateBoard.Enabled = true;
+                but_simulationAdvance.Enabled = true;
             }
         }
 
@@ -44,17 +48,42 @@ namespace Game_Of_Life
             int x = GameOfLife.simulationBoard.GetLength(0);
             int y = GameOfLife.simulationBoard.GetLength(1);
 
-            for (int a = 0; a < x; a++) {
-                // Apply padding if neccesarry
-                if (a < 10) { Console.Write("0{0} - ", a); }
-                else { Console.Write("{0} - ", a); }
+            // Print to file
+            using (StreamWriter writer = new StreamWriter(@"C:\temp\golBoard.txt")) {
+                for (int a = 0; a < x; a++)
+                {
+                    // Apply padding if neccesarry
+                    if (a < 10) {
+                        Console.Write("0{0} - ", a);
+                    } else {
+                        Console.Write("{0} - ", a);
+                    }
 
-                for (int b = 0; b < y; b++) {
-                    Console.Write(GameOfLife.simulationBoard[a,b]);
+                    for (int b = 0; b < y; b++) {
+                        
+                        writer.Write(GameOfLife.simulationBoard[a, b]);
+                        Console.Write(GameOfLife.simulationBoard[a, b]);
+
+                    }
+
+                    writer.WriteLine("");
+                    Console.WriteLine(" ");
                 }
-
-                Console.WriteLine(" ");
             }
+        }
+
+        private void but_simulationAdvance_Click(object sender, EventArgs e) {
+            int x = GameOfLife.simulationBoard.GetLength(0);
+            int y = GameOfLife.simulationBoard.GetLength(1);
+
+            for (int a = 0; a < x; a++) {
+                for (int b = 0; b < y; b++) {
+                    GameOfLifeLogic.processGameRule(a, b);
+                }
+            }
+
+            // Apply
+            GameOfLifeLogic.updateBoard();
         }
     }
 }
