@@ -80,11 +80,23 @@ namespace Game_Of_Life.Simulation {
             // Game rules
             // Any live cell with fewer than two live neighbours dies, as if by underpopulation.
             bool canContinue = true;
-            Console.Write("[!] Stats for cell {0}/{1} (state '{2}'): Alive: {3}, Dead: {4}. Verdict: ", x + 1, y + 1, cellState, aliveCells, deadCells); ;
+
+            // Verbose output with padding
+            Console.Write("[i] Cell (");
+                if (x + 1 < 10) { Console.Write("0{0}/", x + 1); }
+                else { Console.Write("{0}/", x + 1); }
+
+                if (y + 1 < 10) { Console.Write("0{0} ", y + 1); }
+                else { Console.Write("{0} ", y + 1); }
+
+            Console.Write(", state '{0}'): Alive: {1}, Dead: {2}. Verdict: ", cellState, aliveCells, deadCells); ;
             
             if (cellState == 1 && aliveCells < 2) {
                 cacheBoard[x, y] = 0;
+
+                Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("Death (starvation).");
+                Console.ResetColor();
 
                 cellDeaths++;
                 canContinue = false;
@@ -93,7 +105,10 @@ namespace Game_Of_Life.Simulation {
             // Any live cell with two or three live neighbours lives on to the next generation.
             if (canContinue && (cellState == 1 && (aliveCells == 2 || aliveCells == 3)) ) {
                 cacheBoard[x, y] = 1;
+
+                Console.ForegroundColor = ConsoleColor.Blue;
                 Console.WriteLine("Life  (unchanged).");
+                Console.ResetColor();
 
                 cellBirths++;
                 canContinue = false;
@@ -102,7 +117,10 @@ namespace Game_Of_Life.Simulation {
             // Any live cell with more than three live neighbours dies, as if by overpopulation.
             if (canContinue && (cellState == 1 && aliveCells > 3)) {
                 cacheBoard[x, y] = 0;
+
+                Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("Death (overpopulation).");
+                Console.ResetColor();
 
                 cellDeaths++;
                 canContinue = false;
@@ -111,7 +129,10 @@ namespace Game_Of_Life.Simulation {
             // Any dead cell with exactly three live neighbours becomes a live cell, as if by reproduction.
             if (canContinue && (cellState == 0 && aliveCells == 3)) {
                 cacheBoard[x, y] = 1;
+                
+                Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine("Life  (birth).");
+                Console.ResetColor();
 
                 cellBirths++;
                 canContinue = false;
@@ -119,7 +140,9 @@ namespace Game_Of_Life.Simulation {
 
             // Anything else
             if (canContinue) {
+                Console.ForegroundColor = ConsoleColor.Yellow;
                 Console.WriteLine("Death (unchanged).");
+                Console.ResetColor();
             }
 
             cellMutations += 1;
