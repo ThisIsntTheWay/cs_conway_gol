@@ -5,6 +5,8 @@
 # compiled source #
 ###################
 *.com
+*.suo
+*.cache
 *.class
 *.dll
 *.exe
@@ -73,8 +75,10 @@ Thumbs.db
 *.userprefs
 
 # Other shit
-.suo
-.cache
+*.html
+*.css
+*.js
+*.json
 
 # Build results
 [Dd]ebug/
