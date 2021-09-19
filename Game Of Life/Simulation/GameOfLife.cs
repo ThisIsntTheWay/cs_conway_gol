@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace Game_Of_Life
 {
-    class GameOfLife
+    public class GameOfLife
     {
-        internal int[,] simulationBoard;    //2D array
-        internal int x_midpoint;
-        internal int y_midpoint;
+        internal static int[,] simulationBoard;    // 2D array
+        internal static int x_midpoint;
+        internal static int y_midpoint;
 
         /// <summary>
         /// GameOfLife class constructor.
@@ -18,7 +18,7 @@ namespace Game_Of_Life
         /// </summary>
         /// <param name="x_length">Max possible length of X axis.</param>
         /// <param name="y_length">max possible length of Y axis.</param>
-        public GameOfLife(int x_length, int y_length) {
+        public static void setBoardSize(int x_length, int y_length) {
             // Sanity checks
             if (x_length % 2 != 0) {
                 Console.ForegroundColor = ConsoleColor.Yellow;
@@ -49,7 +49,7 @@ namespace Game_Of_Life
         /// <summary>
         /// Populates the simulation board randomly.
         /// </summary>
-        public void populateBoardRandom() {
+        public static void populateBoardRandom() {
             Random rnd = new Random();
 
             int x = simulationBoard.GetLength(0);
@@ -73,11 +73,25 @@ namespace Game_Of_Life
         /// <summary>
         /// Toggles a cell state at a specific board position.
         /// </summary>
-        /// <param name="x_target">X coordinate of target cell.</param>
-        /// <param name="y_target">Y coordinate of target cell.</param>
-        public void toggleCell(int x_target, int y_target) {
-            int x = simulationBoard.GetLength(0);
-            int y = simulationBoard.GetLength(1);
+        /// <param name="x">X coordinate of target cell.</param>
+        /// <param name="y">Y coordinate of target cell.</param>
+        /// <returns>0 if OK, non-zero if not OK:
+        /// 1 -> x too large.
+        /// 2 -> y too large.</returns>
+        public static int toggleCell(int x, int y) {
+            int x_length = simulationBoard.GetLength(0);
+            int y_length = simulationBoard.GetLength(1);
+
+            // Sanity checks
+            if (x > x_length) { return 1; }
+            if (y > y_length) { return 2; }
+            
+            // Toggle cell
+            else {
+                if (simulationBoard[x, y] == 0) { simulationBoard[x, y] = 1; }
+                else { simulationBoard[x, y] = 0; }
+                return 0;
+            }
         }
     }
 }
