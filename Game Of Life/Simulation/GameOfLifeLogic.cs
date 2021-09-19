@@ -32,7 +32,7 @@ namespace Game_Of_Life.Simulation {
             // Save cell state
             int cellState = GameOfLife.simulationBoard[x, y];
             if (cellState > 1) {    // Handle invalid cell state
-                Console.WriteLine("[!] Cell at {0}/{1} has invalid state: {2}.", x, y, cellState);
+                Console.WriteLine("[!] Cell at {0}/{1} has invalid state: {2}.", x + 1, y + 1, cellState);
                 cellState = 0;
             }
 
@@ -44,18 +44,22 @@ namespace Game_Of_Life.Simulation {
             // General rule for every check: out of bounds array indexes will be treated as dead cells
             // Iterate X
             for (var a = -1; a < 2; a++) {
-                var xC = x += a;
+                var xC = x + a;
+                Console.WriteLine("xC at: {0}", xC);
                 
                 // OOB checks
                 // > Always increment deadCells by 3 as the whole row is out of bounds
-                if (xC < 0 || xC > x_length) { deadCells += 3; }
-                else {
+                if (xC < 0 || xC > x_length) { 
+                    deadCells += 3;
+                } else {
                     // Iterate Y
                     for (var b = -1; b < 2; b++) {
-                        var yC = y += b;
+                        var yC = y + b;
                         
                         // OOB checks
-                        if (yC < 0 || yC > y_length) { deadCells++; }
+                        if (yC < 0 || yC > y_length) {
+                            deadCells++;
+                        }
 
                         // Y is not out of bounds, get cellState
                         // > Skip check if Y & X == 0, as this would be the cell the whole neighbor check is based on
@@ -70,41 +74,46 @@ namespace Game_Of_Life.Simulation {
 
             // Game rules
             // Any live cell with fewer than two live neighbours dies, as if by underpopulation.
-            Console.Write("[!] Stats for cell {0}/{1} (state '{2}'): Alive: {3}, Dead: {4}. Verdict: ", x, y, cellState, aliveCells, deadCells); ;
-            if (cellState == 1 && deadCells < 2) {
+            bool canContinue = true;
+            Console.Write("[!] Stats for cell {0}/{1} (state '{2}'): Alive: {3}, Dead: {4}. Verdict: ", x + 1, y + 1, cellState, aliveCells, deadCells); ;
+            if (cellState == 1 && aliveCells < 2) {
                 GameOfLife.cacheBoard[x, y] = 0;
                 Console.WriteLine("Death (starvation).");
 
                 cellDeaths++;
+                canContinue = false;
             }
             
             // Any live cell with two or three live neighbours lives on to the next generation.
-            else if (cellState == 1 && (aliveCells >= 2 || aliveCells <= 3)) {
+            if (canContinue && (cellState == 1 && (aliveCells >= 2 || aliveCells <= 3)) ) {
                 GameOfLife.cacheBoard[x, y] = 1;
                 Console.WriteLine("Life (unchanged).");
 
                 cellBirths++;
+                canContinue = false;
             }
             
             // Any live cell with more than three live neighbours dies, as if by overpopulation.
-            else if (cellState == 1 && aliveCells > 3) {
+            if (canContinue && (cellState == 1 && aliveCells > 3)) {
                 GameOfLife.cacheBoard[x, y] = 0;
                 Console.WriteLine("Death (overpopulation).");
 
                 cellDeaths++;
+                canContinue = false;
             }
             
             // Any dead cell with exactly three live neighbours becomes a live cell, as if by reproduction.
-            else if (cellState == 0 && aliveCells == 3) {
+            if (canContinue && (cellState == 0 && aliveCells == 3)) {
                 GameOfLife.cacheBoard[x, y] = 1;
                 Console.WriteLine("Life (birth).");
 
                 cellBirths++;
+                canContinue = false;
             }
 
             // Anything else
-            else {
-                Console.WriteLine("Unknown fate.");
+            if (canContinue) {
+                Console.WriteLine("Unchanged.");
             }
 
             cellMutations += 1;
