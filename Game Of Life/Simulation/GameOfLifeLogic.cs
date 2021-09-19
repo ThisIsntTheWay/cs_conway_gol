@@ -70,7 +70,7 @@ namespace Game_Of_Life.Simulation {
 
             // Game rules
             // Any live cell with fewer than two live neighbours dies, as if by underpopulation.
-            Console.Write("[!] Stats for cell {0}/{1} (state '{2}'): alive: {3}, dead: {4}. Verdict: ", x, y, cellState, aliveCells, deadCells); ;
+            Console.Write("[!] Stats for cell {0}/{1} (state '{2}'): Alive: {3}, Dead: {4}. Verdict: ", x, y, cellState, aliveCells, deadCells); ;
             if (cellState == 1 && deadCells < 2) {
                 GameOfLife.cacheBoard[x, y] = 0;
                 Console.WriteLine("Death (starvation).");
@@ -81,7 +81,7 @@ namespace Game_Of_Life.Simulation {
             // Any live cell with two or three live neighbours lives on to the next generation.
             else if (cellState == 1 && (aliveCells >= 2 || aliveCells <= 3)) {
                 GameOfLife.cacheBoard[x, y] = 1;
-                Console.WriteLine("Life (unaltered).");
+                Console.WriteLine("Life (unchanged).");
 
                 cellBirths++;
             }

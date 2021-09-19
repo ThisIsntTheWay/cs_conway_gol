@@ -16,5 +16,12 @@ namespace Game_Of_Life
         {
             InitializeComponent();
         }
+
+        private void but_applyBoardDimensions_Click(object sender, EventArgs e) {
+            int x = Convert.ToInt32(input_boardDimensionX.Value);
+            int y = Convert.ToInt32(input_boardDimensionY.Value);
+
+            GameOfLife.setBoardSize(x, y);
+        }
     }
 }
