@@ -17,6 +17,9 @@ namespace Game_Of_Life
     {
         public Form1() {
             InitializeComponent();
+
+            golBoard canvasForm = new golBoard();
+            canvasForm.Show();
         }
 
         private void but_applyBoardDimensions_Click(object sender, EventArgs e) {
@@ -70,6 +73,10 @@ namespace Game_Of_Life
                     Console.WriteLine(" ");
                 }
             }
+
+            // Update canvas
+            golBoard canvas = new golBoard();
+            canvas.updateCanvas();
         }
 
         private void but_simulationAdvance_Click(object sender, EventArgs e) {
