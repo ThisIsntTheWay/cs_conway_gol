@@ -87,7 +87,7 @@ namespace Game_Of_Life.Simulation {
             }
             
             // Any live cell with two or three live neighbours lives on to the next generation.
-            if (canContinue && (cellState == 1 && (aliveCells >= 2 || aliveCells <= 3)) ) {
+            if (canContinue && (cellState == 1 && (aliveCells == 2 || aliveCells == 3)) ) {
                 GameOfLife.cacheBoard[x, y] = 1;
                 Console.WriteLine("Life  (unchanged).");
 
