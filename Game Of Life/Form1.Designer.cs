@@ -38,6 +38,10 @@ namespace Game_Of_Life
             this.but_showSimulationBoard = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.but_simulationAdvance = new System.Windows.Forms.Button();
+            this.label_bornCellsHead = new System.Windows.Forms.Label();
+            this.label_cellBirthsValue = new System.Windows.Forms.Label();
+            this.label_cellDeathsValue = new System.Windows.Forms.Label();
+            this.label_cellDeathsHead = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.input_boardDimensionX)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.input_boardDimensionY)).BeginInit();
             this.SuspendLayout();
@@ -141,11 +145,51 @@ namespace Game_Of_Life
             this.but_simulationAdvance.UseVisualStyleBackColor = true;
             this.but_simulationAdvance.Click += new System.EventHandler(this.but_simulationAdvance_Click);
             // 
+            // label_bornCellsHead
+            // 
+            this.label_bornCellsHead.AutoSize = true;
+            this.label_bornCellsHead.Location = new System.Drawing.Point(300, 389);
+            this.label_bornCellsHead.Name = "label_bornCellsHead";
+            this.label_bornCellsHead.Size = new System.Drawing.Size(55, 13);
+            this.label_bornCellsHead.TabIndex = 11;
+            this.label_bornCellsHead.Text = "Cell births:";
+            // 
+            // label_cellBirthsValue
+            // 
+            this.label_cellBirthsValue.AutoSize = true;
+            this.label_cellBirthsValue.Location = new System.Drawing.Point(358, 389);
+            this.label_cellBirthsValue.Name = "label_cellBirthsValue";
+            this.label_cellBirthsValue.Size = new System.Drawing.Size(13, 13);
+            this.label_cellBirthsValue.TabIndex = 12;
+            this.label_cellBirthsValue.Text = "0";
+            // 
+            // label_cellDeathsValue
+            // 
+            this.label_cellDeathsValue.AutoSize = true;
+            this.label_cellDeathsValue.Location = new System.Drawing.Point(358, 402);
+            this.label_cellDeathsValue.Name = "label_cellDeathsValue";
+            this.label_cellDeathsValue.Size = new System.Drawing.Size(13, 13);
+            this.label_cellDeathsValue.TabIndex = 14;
+            this.label_cellDeathsValue.Text = "0";
+            // 
+            // label_cellDeathsHead
+            // 
+            this.label_cellDeathsHead.AutoSize = true;
+            this.label_cellDeathsHead.Location = new System.Drawing.Point(300, 402);
+            this.label_cellDeathsHead.Name = "label_cellDeathsHead";
+            this.label_cellDeathsHead.Size = new System.Drawing.Size(55, 13);
+            this.label_cellDeathsHead.TabIndex = 13;
+            this.label_cellDeathsHead.Text = "Cell births:";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label_cellDeathsValue);
+            this.Controls.Add(this.label_cellDeathsHead);
+            this.Controls.Add(this.label_cellBirthsValue);
+            this.Controls.Add(this.label_bornCellsHead);
             this.Controls.Add(this.but_simulationAdvance);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.but_showSimulationBoard);
@@ -175,6 +219,10 @@ namespace Game_Of_Life
         private System.Windows.Forms.Button but_showSimulationBoard;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button but_simulationAdvance;
+        private System.Windows.Forms.Label label_bornCellsHead;
+        private System.Windows.Forms.Label label_cellBirthsValue;
+        private System.Windows.Forms.Label label_cellDeathsValue;
+        private System.Windows.Forms.Label label_cellDeathsHead;
     }
 }
 

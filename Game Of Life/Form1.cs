@@ -78,9 +78,14 @@ namespace Game_Of_Life
 
             for (int a = 0; a < x; a++) {
                 for (int b = 0; b < y; b++) {
+                    //Console.WriteLine("a,b = {0},{1}", a, b);
                     GameOfLifeLogic.processGameRule(a, b);
                 }
             }
+
+            // Update statistics
+            label_cellBirthsValue.Text = GameOfLifeLogic.cellBirths.ToString();
+            label_cellDeathsValue.Text = GameOfLifeLogic.cellDeaths.ToString();
 
             // Apply
             GameOfLifeLogic.updateBoard();
