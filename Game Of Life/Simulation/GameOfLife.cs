@@ -8,9 +8,8 @@ namespace Game_Of_Life
 {
     public class GameOfLife
     {
-        internal static int[,] simulationBoard;    // 2D array
-        internal static int x_midpoint;
-        internal static int y_midpoint;
+        public static int[,] simulationBoard;
+        public static int[,] cacheBoard;                // Copy of simulationBoard
         internal static bool hasInitialized = false;
 
         /// <summary>
@@ -39,12 +38,11 @@ namespace Game_Of_Life
                 y_length -= 1;
             }
 
-            // Init array and set midpoints.
+            // Init arrays
             simulationBoard = new int[x_length, y_length];
-            Console.WriteLine("[i] A board of the size {0} - {1} has been initialized.", x_length, y_length);
+            cacheBoard = simulationBoard;
 
-            x_midpoint = x_length / 2;
-            y_midpoint = y_length / 2;
+            Console.WriteLine("[i] A board of the size {0} - {1} has been initialized.", x_length, y_length);
 
             hasInitialized = true;
         }
