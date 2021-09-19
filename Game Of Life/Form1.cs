@@ -76,22 +76,21 @@ namespace Game_Of_Life
         }
 
         private void but_simulationAdvance_Click(object sender, EventArgs e) {
-            int x = GameOfLife.simulationBoard.GetLength(0);
-            int y = GameOfLife.simulationBoard.GetLength(1);
+            GameOfLifeLogic.processGameRule();
+        }
 
-            for (int a = 0; a < x; a++) {
-                for (int b = 0; b < y; b++) {
-                    //Console.WriteLine("a,b = {0},{1}", a, b);
-                    GameOfLifeLogic.processGameRule(a, b);
-                }
+        private void check_autoSim_CheckedChanged(object sender, EventArgs e){
+            if (this.check_autoSim.Checked) {
+                GameOfLifeLogic.simulationState = true;
+            } else {
+                GameOfLifeLogic.simulationState = false;
             }
+        }
 
+        private void timer1_Tick(object sender, EventArgs e) {
             // Update statistics
             label_cellBirthsValue.Text = GameOfLifeLogic.cellBirths.ToString();
             label_cellDeathsValue.Text = GameOfLifeLogic.cellDeaths.ToString();
-
-            // Apply
-            GameOfLifeLogic.updateBoard();
         }
     }
 }

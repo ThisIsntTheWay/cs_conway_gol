@@ -21,7 +21,7 @@ namespace Game_Of_Life.Simulation {
         /// <param name="y">Y coordinate of target cell.</param>
         /// <returns>True = processed rules succesfully
         /// False = x/y coordinate under-, or overflow.</returns>
-        public static bool processGameRule(int x, int y) {
+        private static bool processGameRuleSpecific(int x, int y) {
             int x_length = GameOfLife.simulationBoard.GetLength(0);
             int y_length = GameOfLife.simulationBoard.GetLength(1);
                         
@@ -80,23 +80,29 @@ namespace Game_Of_Life.Simulation {
             // Game rules
             // Any live cell with fewer than two live neighbours dies, as if by underpopulation.
             bool canContinue = true;
+            bool output = false;
 
             // Verbose output with padding
-            Console.Write("[i] Cell (");
-                if (x + 1 < 10) { Console.Write("0{0}/", x + 1); }
-                else { Console.Write("{0}/", x + 1); }
+            if (output) {
+                Console.Write("[i] Cell (");
+                    if (x + 1 < 10) { Console.Write("0{0}/", x + 1); }
+                    else { Console.Write("{0}/", x + 1); }
 
-                if (y + 1 < 10) { Console.Write("0{0} ", y + 1); }
-                else { Console.Write("{0} ", y + 1); }
+                    if (y + 1 < 10) { Console.Write("0{0} ", y + 1); }
+                    else { Console.Write("{0} ", y + 1); }
 
-            Console.Write(", state '{0}'): Alive: {1}, Dead: {2}. Verdict: ", cellState, aliveCells, deadCells); ;
+                Console.Write(", state '{0}'): Alive: {1}, Dead: {2}. Verdict: ", cellState, aliveCells, deadCells);
+            }
             
             if (cellState == 1 && aliveCells < 2) {
                 cacheBoard[x, y] = 0;
 
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("Death (starvation)");
-                Console.ResetColor();
+                if (output) {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("Death (starvation)");
+                    Console.ResetColor();
+                }
+
 
                 cellDeaths++;
                 canContinue = false;
@@ -106,9 +112,11 @@ namespace Game_Of_Life.Simulation {
             if (canContinue && (cellState == 1 && (aliveCells == 2 || aliveCells == 3)) ) {
                 cacheBoard[x, y] = 1;
 
-                Console.ForegroundColor = ConsoleColor.DarkGreen;
-                Console.WriteLine("Life  (unchanged)");
-                Console.ResetColor();
+                if (output) {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("Life  (unchanged)");
+                    Console.ResetColor();
+                }
 
                 cellBirths++;
                 canContinue = false;
@@ -117,10 +125,12 @@ namespace Game_Of_Life.Simulation {
             // Any live cell with more than three live neighbours dies, as if by overpopulation.
             if (canContinue && (cellState == 1 && aliveCells > 3)) {
                 cacheBoard[x, y] = 0;
-
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("Death (overpopulation)");
-                Console.ResetColor();
+                
+                if (output) {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("Death (overpopulation)");
+                    Console.ResetColor();
+                }
 
                 cellDeaths++;
                 canContinue = false;
@@ -130,21 +140,42 @@ namespace Game_Of_Life.Simulation {
             if (canContinue && (cellState == 0 && aliveCells == 3)) {
                 cacheBoard[x, y] = 1;
                 
-                Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine("Life  (birth)");
-                Console.ResetColor();
-
+                if (output) {
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.WriteLine("Life  (birth)");
+                    Console.ResetColor();
+                }
+                
                 cellBirths++;
                 canContinue = false;
             }
 
             // Anything else
             if (canContinue) {
-                Console.WriteLine("Death (unchanged)");
+                if (output)
+                    Console.WriteLine("Death (unchanged)");
             }
 
             cellMutations += 1;
             return true;
+        }
+
+        /// <summary>
+        /// Update simulation board according to GoL's rules.
+        /// </summary>
+        public static void processGameRule() {
+            int x = GameOfLife.simulationBoard.GetLength(0);
+            int y = GameOfLife.simulationBoard.GetLength(1);
+
+            for (int a = 0; a < x; a++) {
+                for (int b = 0; b < y; b++) {
+                    //Console.WriteLine("a,b = {0},{1}", a, b);
+                    processGameRuleSpecific(a, b);
+                }
+            }
+
+            // Apply new board state
+            updateBoard();
         }
 
         public static void updateBoard() {

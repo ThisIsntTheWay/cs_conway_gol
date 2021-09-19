@@ -29,6 +29,7 @@ namespace Game_Of_Life
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label_boardDimensionsHead = new System.Windows.Forms.Label();
             this.but_applyBoardDimensions = new System.Windows.Forms.Button();
             this.label_boardDimensionsDelimiter = new System.Windows.Forms.Label();
@@ -42,6 +43,8 @@ namespace Game_Of_Life
             this.label_cellBirthsValue = new System.Windows.Forms.Label();
             this.label_cellDeathsValue = new System.Windows.Forms.Label();
             this.label_cellDeathsHead = new System.Windows.Forms.Label();
+            this.check_autoSim = new System.Windows.Forms.CheckBox();
+            this.timer_statisticsWDT = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.input_boardDimensionX)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.input_boardDimensionY)).BeginInit();
             this.SuspendLayout();
@@ -129,9 +132,9 @@ namespace Game_Of_Life
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(12, 144);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(92, 13);
+            this.label1.Size = new System.Drawing.Size(90, 13);
             this.label1.TabIndex = 9;
-            this.label1.Text = "Population control";
+            this.label1.Text = "Simulation control";
             // 
             // but_simulationAdvance
             // 
@@ -140,7 +143,7 @@ namespace Game_Of_Life
             this.but_simulationAdvance.Name = "but_simulationAdvance";
             this.but_simulationAdvance.Size = new System.Drawing.Size(75, 23);
             this.but_simulationAdvance.TabIndex = 10;
-            this.but_simulationAdvance.Text = "gameRule check";
+            this.but_simulationAdvance.Text = "Advance";
             this.but_simulationAdvance.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.but_simulationAdvance.UseVisualStyleBackColor = true;
             this.but_simulationAdvance.Click += new System.EventHandler(this.but_simulationAdvance_Click);
@@ -181,11 +184,28 @@ namespace Game_Of_Life
             this.label_cellDeathsHead.TabIndex = 13;
             this.label_cellDeathsHead.Text = "Cell deaths:";
             // 
+            // check_autoSim
+            // 
+            this.check_autoSim.AutoSize = true;
+            this.check_autoSim.Location = new System.Drawing.Point(96, 164);
+            this.check_autoSim.Name = "check_autoSim";
+            this.check_autoSim.Size = new System.Drawing.Size(93, 17);
+            this.check_autoSim.TabIndex = 15;
+            this.check_autoSim.Text = "Auto-advance";
+            this.check_autoSim.UseVisualStyleBackColor = true;
+            this.check_autoSim.CheckedChanged += new System.EventHandler(this.check_autoSim_CheckedChanged);
+            // 
+            // timer_statisticsWDT
+            // 
+            this.timer_statisticsWDT.Enabled = true;
+            this.timer_statisticsWDT.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(126, 240);
+            this.ClientSize = new System.Drawing.Size(264, 240);
+            this.Controls.Add(this.check_autoSim);
             this.Controls.Add(this.label_cellDeathsValue);
             this.Controls.Add(this.label_cellDeathsHead);
             this.Controls.Add(this.label_cellBirthsValue);
@@ -223,6 +243,8 @@ namespace Game_Of_Life
         private System.Windows.Forms.Label label_cellBirthsValue;
         private System.Windows.Forms.Label label_cellDeathsValue;
         private System.Windows.Forms.Label label_cellDeathsHead;
+        private System.Windows.Forms.CheckBox check_autoSim;
+        private System.Windows.Forms.Timer timer_statisticsWDT;
     }
 }
 

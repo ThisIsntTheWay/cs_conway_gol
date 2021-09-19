@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Game_Of_Life.Simulation;
 using static Game_Of_Life.GameOfLife;
 
 namespace Game_Of_Life {
@@ -15,12 +16,27 @@ namespace Game_Of_Life {
 
         public golBoard() {
             InitializeComponent();
+
+            this.Controls.Add(picBox_golBoard);
         }
 
         private void golBoard_Load(object sender, EventArgs e) {}
 
+        private void golBoard_Resize(object sender, EventArgs e) {
+            Console.WriteLine("OnResize fired");
+            Control control = (Control)sender;
+        }
+
         private void timer_golLogic_Tick(object sender, EventArgs e) {
             renderBoard();
+
+            // Dynamically resize picture box.
+            this.Height = GameOfLife.simulationBoard.GetLength(0) * 10;
+            this.Width = GameOfLife.simulationBoard.GetLength(1) * 20;
+            
+            if (GameOfLifeLogic.simulationState) {
+                GameOfLifeLogic.processGameRule();
+            }
         }
 
         // https://swharden.com/CsharpDataVis/life/game-of-life-using-csharp.md.html
