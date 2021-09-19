@@ -44,6 +44,8 @@ namespace Game_Of_Life
 
             Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine("[i] A simulation board with size '{0}' x '{1}' has been initialized.", x_length, y_length);
+            Console.WriteLine(" > X Length: {0}", simulationBoard.GetLength(0));
+            Console.WriteLine(" > Y Length: {0}", simulationBoard.GetLength(1));
             Console.ResetColor();
 
             hasInitialized = true;
@@ -70,8 +72,9 @@ namespace Game_Of_Life
             Console.ResetColor();
 
             // Populate array
-            for (int a = 0; a < x - 1; a++) {
-                for (int b = 0; a < y - 1; b++) {
+            for (int a = 0; a < x; a++) {
+                for (int b = 0; b < y; b++) {
+                    //Console.WriteLine("a: {0}, b: {1}", a, b);
                     simulationBoard[a, b] = rnd.Next(0, 1);
                 }
             }
