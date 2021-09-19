@@ -42,7 +42,9 @@ namespace Game_Of_Life
             simulationBoard = new int[x_length, y_length];
             cacheBoard = simulationBoard;
 
-            Console.WriteLine("[i] A board of the size {0} - {1} has been initialized.", x_length, y_length);
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("[i] A simulation board with size '{0}' x '{1}' has been initialized.", x_length, y_length);
+            Console.ResetColor();
 
             hasInitialized = true;
         }
