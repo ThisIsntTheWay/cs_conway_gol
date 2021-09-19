@@ -106,7 +106,7 @@ namespace Game_Of_Life.Simulation {
             if (canContinue && (cellState == 1 && (aliveCells == 2 || aliveCells == 3)) ) {
                 cacheBoard[x, y] = 1;
 
-                Console.ForegroundColor = ConsoleColor.Blue;
+                Console.ForegroundColor = ConsoleColor.DarkGreen;
                 Console.WriteLine("Life  (unchanged).");
                 Console.ResetColor();
 
@@ -140,9 +140,7 @@ namespace Game_Of_Life.Simulation {
 
             // Anything else
             if (canContinue) {
-                Console.ForegroundColor = ConsoleColor.Yellow;
                 Console.WriteLine("Death (unchanged).");
-                Console.ResetColor();
             }
 
             cellMutations += 1;
