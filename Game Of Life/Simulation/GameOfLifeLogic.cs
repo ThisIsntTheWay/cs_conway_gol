@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using static Game_Of_Life.GameOfLife;
 
 namespace Game_Of_Life.Simulation {
-    class GameOfLifeLogic {
+    public class GameOfLifeLogic {
         public static bool simulationState;     // State of simulation
         public static int generation;           // Current generation
         public static int cellMutations;        // Cell update count
