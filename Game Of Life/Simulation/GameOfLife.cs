@@ -53,6 +53,13 @@ namespace Game_Of_Life
         /// Populates the simulation board randomly.
         /// </summary>
         public static void populateBoardRandom() {
+            if (!hasInitialized) {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.Write("[X] Cannot populate board as it has not yet been initialized.");
+                Console.ResetColor();
+                return;
+            }
+
             Random rnd = new Random();
 
             int x = simulationBoard.GetLength(0);
@@ -63,13 +70,10 @@ namespace Game_Of_Life
             Console.ResetColor();
 
             // Populate array
-            for (int i = 0; i < x - 1; i++) {
-
-                simulationBoard[0, i] = rnd.Next(0, 1);
-            }
-
-            for (int i = 0; i < y - 1; i++) {
-                simulationBoard[1, i] = rnd.Next(0, 1);
+            for (int a = 0; a < x - 1; a++) {
+                for (int b = 0; a < y - 1, b++) {
+                    simulationBoard[a, b] = rnd.Next(0, 1);
+                }
             }
         }
 
