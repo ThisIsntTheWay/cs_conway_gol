@@ -95,7 +95,7 @@ namespace Game_Of_Life.Simulation {
                 cacheBoard[x, y] = 0;
 
                 Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("Death (starvation).");
+                Console.WriteLine("Death (starvation)");
                 Console.ResetColor();
 
                 cellDeaths++;
@@ -107,7 +107,7 @@ namespace Game_Of_Life.Simulation {
                 cacheBoard[x, y] = 1;
 
                 Console.ForegroundColor = ConsoleColor.DarkGreen;
-                Console.WriteLine("Life  (unchanged).");
+                Console.WriteLine("Life  (unchanged)");
                 Console.ResetColor();
 
                 cellBirths++;
@@ -119,7 +119,7 @@ namespace Game_Of_Life.Simulation {
                 cacheBoard[x, y] = 0;
 
                 Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("Death (overpopulation).");
+                Console.WriteLine("Death (overpopulation)");
                 Console.ResetColor();
 
                 cellDeaths++;
@@ -131,7 +131,7 @@ namespace Game_Of_Life.Simulation {
                 cacheBoard[x, y] = 1;
                 
                 Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine("Life  (birth).");
+                Console.WriteLine("Life  (birth)");
                 Console.ResetColor();
 
                 cellBirths++;
@@ -140,7 +140,7 @@ namespace Game_Of_Life.Simulation {
 
             // Anything else
             if (canContinue) {
-                Console.WriteLine("Death (unchanged).");
+                Console.WriteLine("Death (unchanged)");
             }
 
             cellMutations += 1;
@@ -149,10 +149,6 @@ namespace Game_Of_Life.Simulation {
 
         public static void updateBoard() {
             GameOfLife.simulationBoard = cacheBoard;
-        }
-
-        public static void updateGrid() {
-
         }
     }
 }

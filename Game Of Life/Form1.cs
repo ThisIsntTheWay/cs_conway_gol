@@ -74,9 +74,9 @@ namespace Game_Of_Life
                 }
             }
 
-            // Update canvas
-            golBoard canvas = new golBoard();
-            canvas.updateCanvas();
+            // Display board
+            GameOfLife.renderBoard();
+
         }
 
         private void but_simulationAdvance_Click(object sender, EventArgs e) {
