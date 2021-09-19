@@ -41,6 +41,11 @@ namespace Game_Of_Life {
             this.picBox_golBoard.TabIndex = 0;
             this.picBox_golBoard.TabStop = false;
             // 
+            // timer_golLogic
+            // 
+            this.timer_golLogic.Enabled = true;
+            this.timer_golLogic.Tick += new System.EventHandler(this.timer_golLogic_Tick);
+            // 
             // golBoard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);

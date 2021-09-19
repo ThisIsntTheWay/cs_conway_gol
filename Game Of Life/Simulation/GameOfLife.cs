@@ -152,40 +152,5 @@ namespace Game_Of_Life
                 else { return false; }
             }
         }
-
-        // https://swharden.com/CsharpDataVis/life/game-of-life-using-csharp.md.html
-        /// <summary>
-        /// Draws the simulation Board as rectangles.
-        /// </summary>
-        public static void renderBoard() {
-            using (var bmp = new System.Drawing.Bitmap(simulationBoard.GetLength(1), simulationBoard.GetLength(0)))
-            using (var gfx = System.Drawing.Graphics.FromImage(bmp))
-            using (var brush = new System.Drawing.SolidBrush(Color.White))
-            {
-                gfx.Clear(Color.Black);
-
-                // Define sizes
-                var globCellSize = 10;
-                var cellSize =  new Size(globCellSize, globCellSize);
-
-                int x_length = GameOfLife.simulationBoard.GetLength(0);
-                int y_length = GameOfLife.simulationBoard.GetLength(1);
-                
-                for (int x = 0; x < x_length; x++) {
-                    for (int y = 0; y < y_length; y++) {
-                        if (simulationBoard[x,y] == 1) {
-                            // Draw cell by making a rectangle
-                            var cLocation = new Point(x * globCellSize, y * globCellSize);
-                            var cRect = new Rectangle(cLocation, cellSize);
-                            gfx.FillRectangle(brush, cRect);
-                        }
-                    }
-                }
-
-                // Draw generated image
-                golBoard gB = new golBoard();
-                gB.picBox_golBoard.Image = (Bitmap)bmp.Clone();
-            }
-        }
     }
 }

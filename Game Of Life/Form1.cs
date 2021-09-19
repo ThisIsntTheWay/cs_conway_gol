@@ -73,10 +73,6 @@ namespace Game_Of_Life
                     Console.WriteLine(" ");
                 }
             }
-
-            // Display board
-            GameOfLife.renderBoard();
-
         }
 
         private void but_simulationAdvance_Click(object sender, EventArgs e) {
