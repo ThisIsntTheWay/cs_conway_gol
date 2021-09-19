@@ -177,9 +177,9 @@ namespace Game_Of_Life
             this.label_cellDeathsHead.AutoSize = true;
             this.label_cellDeathsHead.Location = new System.Drawing.Point(300, 402);
             this.label_cellDeathsHead.Name = "label_cellDeathsHead";
-            this.label_cellDeathsHead.Size = new System.Drawing.Size(55, 13);
+            this.label_cellDeathsHead.Size = new System.Drawing.Size(62, 13);
             this.label_cellDeathsHead.TabIndex = 13;
-            this.label_cellDeathsHead.Text = "Cell births:";
+            this.label_cellDeathsHead.Text = "Cell deaths:";
             // 
             // Form1
             // 
