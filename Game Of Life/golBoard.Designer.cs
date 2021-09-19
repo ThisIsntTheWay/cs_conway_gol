@@ -37,7 +37,7 @@ namespace Game_Of_Life {
             // 
             this.picBox_golBoard.Location = new System.Drawing.Point(1, 1);
             this.picBox_golBoard.Name = "picBox_golBoard";
-            this.picBox_golBoard.Size = new System.Drawing.Size(119, 77);
+            this.picBox_golBoard.Size = new System.Drawing.Size(837, 437);
             this.picBox_golBoard.TabIndex = 0;
             this.picBox_golBoard.TabStop = false;
             // 
@@ -50,7 +50,7 @@ namespace Game_Of_Life {
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(120, 81);
+            this.ClientSize = new System.Drawing.Size(838, 435);
             this.ControlBox = false;
             this.Controls.Add(this.picBox_golBoard);
             this.Name = "golBoardView";
