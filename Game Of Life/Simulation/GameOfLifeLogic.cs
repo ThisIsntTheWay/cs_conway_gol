@@ -40,28 +40,27 @@ namespace Game_Of_Life.Simulation {
             int neighborCellState;
             byte aliveCells = 0;
             byte deadCells = 0;
-            var c = 0;
 
-            // General rule for every check: If the array index is out of bounds, then INCREMENT the deadCells count.
+            // General rule for every check: out of bounds array indexes will be treated as dead cells
             // Iterate X
             for (var a = -1; a < 2; a++) {
-                c = x += a;
+                var xC = x += a;
                 
                 // OOB checks
                 // > Always increment deadCells by 3 as the whole row is out of bounds
-                if (c < 0 || c > x_length) { deadCells += 3; }
+                if (xC < 0 || xC > x_length) { deadCells += 3; }
                 else {
                     // Iterate Y
                     for (var b = -1; b < 2; b++) {
-                        c = y += b;
+                        var yC = y += b;
                         
                         // OOB checks
-                        if ( c < 0 || c > y_length) { deadCells++; }
+                        if (yC < 0 || yC > y_length) { deadCells++; }
 
                         // Y is not out of bounds, get cellState
                         // > Skip check if Y & X == 0, as this would be the cell the whole neighbor check is based on
                         else if (a != 0 && b != 0) {
-                            neighborCellState = GameOfLife.simulationBoard[x, y];
+                            neighborCellState = GameOfLife.simulationBoard[xC, yC];
                             if (neighborCellState == 0) { deadCells += 1; }
                             else { aliveCells += 1; }
                         }
