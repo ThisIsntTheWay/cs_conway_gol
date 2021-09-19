@@ -11,6 +11,7 @@ namespace Game_Of_Life
         internal static int[,] simulationBoard;    // 2D array
         internal static int x_midpoint;
         internal static int y_midpoint;
+        internal static bool hasInitialized = false;
 
         /// <summary>
         /// GameOfLife class constructor.
@@ -44,6 +45,8 @@ namespace Game_Of_Life
 
             x_midpoint = x_length / 2;
             y_midpoint = y_length / 2;
+
+            hasInitialized = true;
         }
 
         /// <summary>
@@ -92,6 +95,61 @@ namespace Game_Of_Life
                 else { simulationBoard[x, y] = 0; }
                 return 0;
             }
+        }
+
+        /// <summary>
+        /// Sets a specific state of a cell.
+        /// </summary>
+        /// <param name="x">X coordinate of target cell.</param>
+        /// <param name="y">Y coordinate of target cell.</param>
+        /// <param name="state">State of cell, true = alive, false = dead.</param>
+        /// <returns>0 if OK, non-zero if not OK:
+        /// 1 -> x too large.
+        /// 2 -> y too large.</returns>
+        public static int setCell(int x, int y, bool state) {
+            int x_length = simulationBoard.GetLength(0);
+            int y_length = simulationBoard.GetLength(1);
+
+            // Sanity checks
+            if (x > x_length) { return 1; }
+            if (y > y_length) { return 2; }
+
+            // Set cell value, but "convert" bool to int beforehand
+            int cellValue;
+            if (state) cellValue = 1;
+            else { cellValue = 0; }
+
+            simulationBoard[x, y] = cellValue;
+            return 0;
+        }
+
+        /// <summary>
+        /// Sets a specific state of a cell.
+        /// </summary>
+        /// <param name="x">X coordinate of target cell.</param>
+        /// <param name="y">Y coordinate of target cell.</param>
+        /// <returns>True = alive, false = dead.</returns>
+        public static bool getCell(int x, int y) {
+            int x_length = simulationBoard.GetLength(0);
+            int y_length = simulationBoard.GetLength(1);
+
+            // Sanity checks
+            if (x > x_length) { return false; }
+            if (y > y_length) { return false; }
+
+            // Toggle cell
+            else {
+                if (simulationBoard[x, y] == 0) { return true;  }
+                else { return false; }
+            }
+        }
+
+        /// <summary>
+        /// See if the board has been set up.
+        /// </summary>
+        /// <returns>Returns hasInitialized.</returns>
+        public static bool boardIsSetUp() {
+            return hasInitialized;
         }
     }
 }
