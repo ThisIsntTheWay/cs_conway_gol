@@ -18,7 +18,7 @@ namespace Game_Of_Life
         public Form1() {
             InitializeComponent();
 
-            golBoard canvasForm = new golBoard();
+            golBoardView canvasForm = new golBoardView();
             canvasForm.Show();
         }
 

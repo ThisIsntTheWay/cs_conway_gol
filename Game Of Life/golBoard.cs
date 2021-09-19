@@ -11,10 +11,10 @@ using Game_Of_Life.Simulation;
 using static Game_Of_Life.GameOfLife;
 
 namespace Game_Of_Life {
-    public partial class golBoard : Form {
+    public partial class golBoardView : Form {
         private PictureBox picBox = new PictureBox();
 
-        public golBoard() {
+        public golBoardView() {
             InitializeComponent();
 
             this.Controls.Add(picBox_golBoard);
