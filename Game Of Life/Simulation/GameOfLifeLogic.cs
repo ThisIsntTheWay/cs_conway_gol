@@ -45,19 +45,20 @@ namespace Game_Of_Life.Simulation {
             // Iterate X
             for (var a = -1; a < 2; a++) {
                 var xC = x + a;
-                Console.WriteLine("xC at: {0}", xC);
+                //Console.WriteLine("xC at: {0}", xC);
                 
                 // OOB checks
                 // > Always increment deadCells by 3 as the whole row is out of bounds
-                if (xC < 0 || xC > x_length) { 
+                if (xC < 0 || xC >= x_length) { 
                     deadCells += 3;
                 } else {
                     // Iterate Y
                     for (var b = -1; b < 2; b++) {
                         var yC = y + b;
+                        //Console.WriteLine("yC at: {0}", yC);
                         
                         // OOB checks
-                        if (yC < 0 || yC > y_length) {
+                        if (yC < 0 || yC >= y_length) {
                             deadCells++;
                         }
 
@@ -76,6 +77,7 @@ namespace Game_Of_Life.Simulation {
             // Any live cell with fewer than two live neighbours dies, as if by underpopulation.
             bool canContinue = true;
             Console.Write("[!] Stats for cell {0}/{1} (state '{2}'): Alive: {3}, Dead: {4}. Verdict: ", x + 1, y + 1, cellState, aliveCells, deadCells); ;
+            
             if (cellState == 1 && aliveCells < 2) {
                 GameOfLife.cacheBoard[x, y] = 0;
                 Console.WriteLine("Death (starvation).");
@@ -87,7 +89,7 @@ namespace Game_Of_Life.Simulation {
             // Any live cell with two or three live neighbours lives on to the next generation.
             if (canContinue && (cellState == 1 && (aliveCells >= 2 || aliveCells <= 3)) ) {
                 GameOfLife.cacheBoard[x, y] = 1;
-                Console.WriteLine("Life (unchanged).");
+                Console.WriteLine("Life  (unchanged).");
 
                 cellBirths++;
                 canContinue = false;
@@ -105,7 +107,7 @@ namespace Game_Of_Life.Simulation {
             // Any dead cell with exactly three live neighbours becomes a live cell, as if by reproduction.
             if (canContinue && (cellState == 0 && aliveCells == 3)) {
                 GameOfLife.cacheBoard[x, y] = 1;
-                Console.WriteLine("Life (birth).");
+                Console.WriteLine("Life  (birth).");
 
                 cellBirths++;
                 canContinue = false;
@@ -113,7 +115,7 @@ namespace Game_Of_Life.Simulation {
 
             // Anything else
             if (canContinue) {
-                Console.WriteLine("Unchanged.");
+                Console.WriteLine("Death (unchanged).");
             }
 
             cellMutations += 1;
