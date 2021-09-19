@@ -15,7 +15,7 @@ namespace Game_Of_Life
         [STAThread]
         static void Main()
         {
-            GameOfLife.setBoardSize(50, 50);
+            GameOfLife.setBoardSize(10, 10);
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
