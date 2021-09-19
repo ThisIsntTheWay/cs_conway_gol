@@ -71,7 +71,7 @@ namespace Game_Of_Life
 
             // Populate array
             for (int a = 0; a < x - 1; a++) {
-                for (int b = 0; a < y - 1, b++) {
+                for (int b = 0; a < y - 1; b++) {
                     simulationBoard[a, b] = rnd.Next(0, 1);
                 }
             }
