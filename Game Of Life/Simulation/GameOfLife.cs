@@ -74,8 +74,11 @@ namespace Game_Of_Life
             // Populate array
             for (int a = 0; a < x; a++) {
                 for (int b = 0; b < y; b++) {
-                    //Console.WriteLine("a: {0}, b: {1}", a, b);
-                    simulationBoard[a, b] = rnd.Next(0, 1);
+                    // Upper bound must be 2 to get 1s
+                    var rand = rnd.Next(0, 2);
+
+                    //Console.WriteLine("a: {0}, b: {1} -> {2}", a, b, rand);
+                    simulationBoard[a, b] = rand;
                 }
             }
         }
