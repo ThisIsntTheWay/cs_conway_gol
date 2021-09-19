@@ -11,9 +11,11 @@ using static Game_Of_Life.GameOfLife;
 
 namespace Game_Of_Life {
     public partial class golBoard : Form {
-        public golBoard()
-        {
+        private PictureBox picBox = new PictureBox();
+
+        public golBoard() {
             InitializeComponent();
+            this.Paint += Draw2DArray;
         }
 
         private void golBoard_Load(object sender, EventArgs e) {}
@@ -23,36 +25,26 @@ namespace Game_Of_Life {
             this.Paint += Draw2DArray;
         }
 
-        // https://stackoverflow.com/a/22425515
-
+        // https://stackoverflow.com/a/2753591
         /// <summary>
         /// Draws the simulation Board as rectangles.
         /// </summary>
-        private void Draw2DArray(object sender, PaintEventArgs e)
-        {
-            int step = 50; //distance between the rows and columns
-            int width = 40; //the width of the rectangle
-            int height = 40; //the height of the rectangle
+        private void Draw2DArray(object sender, PaintEventArgs e) {
+            int numCells = simulationBoard.GetLength(0) * simulationBoard.GetLength(1);
+            int cellSize = 10;
 
-            using (Graphics g = this.CreateGraphics())
-            {
+            Console.WriteLine("[i] Redrawing...");
+
+            using (Graphics g = this.CreateGraphics()) {
                 g.Clear(SystemColors.Control); //Clear the draw area
-                using (Pen pen = new Pen(Color.Red, 2))
-                {
-                    int rows = GameOfLife.simulationBoard.GetUpperBound(0) + 1 - GameOfLife.simulationBoard.GetLowerBound(0); // = 3, this value is not used
-                    int columns = GameOfLife.simulationBoard.GetUpperBound(1) + 1 - GameOfLife.simulationBoard.GetLowerBound(1); // = 4
+                Pen p = System.Drawing.Pens.Black;
 
-                    for (int index = 0; index < GameOfLife.simulationBoard.Length; index++)
-                    {
-                        int i = index / columns;
-                        int j = index % columns;
-                        if (GameOfLife.simulationBoard[i, j] == 1) 
-                        {
-                            Rectangle rect = new Rectangle(new Point(5 + step * j, 5 + step * i), new Size(width, height));
-                            g.DrawRectangle(pen, rect);
-                            g.FillRectangle(System.Drawing.Brushes.Red, rect);
-                        }
-                    }
+                // Create grid
+                for (int i = 0; i < numCells; i++) {
+                    // Vertical / Y
+                    g.DrawLine(p, i * cellSize, 0, i * cellSize, numCells * cellSize);
+                    // Horizontal / X
+                    g.DrawLine(p, 0, i * cellSize, numCells * cellSize, i * cellSize);
                 }
             }
         }
