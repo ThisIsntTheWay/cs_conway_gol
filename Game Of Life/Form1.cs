@@ -28,7 +28,14 @@ namespace Game_Of_Life
         }
 
         private void but_populateBoard_Click(object sender, EventArgs e) {
+            Application.UseWaitCursor = true;
+
             GameOfLife.populateBoardRandom();
+            Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.WriteLine(" -> Done");
+                Console.ResetColor();
+
+            Application.UseWaitCursor = false;
         }
     }
 }
