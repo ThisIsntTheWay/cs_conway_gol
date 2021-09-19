@@ -36,6 +36,25 @@ namespace Game_Of_Life
                 Console.ResetColor();
 
             Application.UseWaitCursor = false;
+            
+            but_showSimulationBoard.Enabled = true;
+        }
+
+        private void but_showSimulationBoard_Click(object sender, EventArgs e) {
+            int x = GameOfLife.simulationBoard.GetLength(0);
+            int y = GameOfLife.simulationBoard.GetLength(1);
+
+            for (int a = 0; a < x; a++) {
+                // Apply padding if neccesarry
+                if (a < 10) { Console.Write("0{0} - ", a); }
+                else { Console.Write("{0} - ", a); }
+
+                for (int b = 0; b < y; b++) {
+                    Console.Write(GameOfLife.simulationBoard[a,b]);
+                }
+
+                Console.WriteLine(" ");
+            }
         }
     }
 }

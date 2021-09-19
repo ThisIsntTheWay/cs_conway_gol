@@ -35,6 +35,7 @@ namespace Game_Of_Life
             this.input_boardDimensionX = new System.Windows.Forms.NumericUpDown();
             this.input_boardDimensionY = new System.Windows.Forms.NumericUpDown();
             this.but_populateBoard = new System.Windows.Forms.Button();
+            this.but_showSimulationBoard = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.input_boardDimensionX)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.input_boardDimensionY)).BeginInit();
             this.SuspendLayout();
@@ -96,7 +97,7 @@ namespace Game_Of_Life
             // but_populateBoard
             // 
             this.but_populateBoard.Enabled = false;
-            this.but_populateBoard.Location = new System.Drawing.Point(301, 280);
+            this.but_populateBoard.Location = new System.Drawing.Point(301, 234);
             this.but_populateBoard.Name = "but_populateBoard";
             this.but_populateBoard.Size = new System.Drawing.Size(75, 23);
             this.but_populateBoard.TabIndex = 7;
@@ -105,11 +106,24 @@ namespace Game_Of_Life
             this.but_populateBoard.UseVisualStyleBackColor = true;
             this.but_populateBoard.Click += new System.EventHandler(this.but_populateBoard_Click);
             // 
+            // but_showSimulationBoard
+            // 
+            this.but_showSimulationBoard.Enabled = false;
+            this.but_showSimulationBoard.Location = new System.Drawing.Point(301, 263);
+            this.but_showSimulationBoard.Name = "but_showSimulationBoard";
+            this.but_showSimulationBoard.Size = new System.Drawing.Size(75, 23);
+            this.but_showSimulationBoard.TabIndex = 8;
+            this.but_showSimulationBoard.Text = "Print board";
+            this.but_showSimulationBoard.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.but_showSimulationBoard.UseVisualStyleBackColor = true;
+            this.but_showSimulationBoard.Click += new System.EventHandler(this.but_showSimulationBoard_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.but_showSimulationBoard);
             this.Controls.Add(this.but_populateBoard);
             this.Controls.Add(this.input_boardDimensionY);
             this.Controls.Add(this.input_boardDimensionX);
@@ -133,6 +147,7 @@ namespace Game_Of_Life
         private System.Windows.Forms.NumericUpDown input_boardDimensionX;
         private System.Windows.Forms.NumericUpDown input_boardDimensionY;
         private System.Windows.Forms.Button but_populateBoard;
+        private System.Windows.Forms.Button but_showSimulationBoard;
     }
 }
 
