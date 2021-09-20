@@ -112,12 +112,11 @@ namespace Game_Of_Life
             var xMid = x / 2;
             var yMid = y / 2;
             
-            simulationBoard[xMid - 1, yMid]     = 1;    // > Top
+            simulationBoard[xMid - 1, yMid + 1] = 1;    // > Top
+            simulationBoard[xMid, yMid - 1]     = 1;    // > Middle
             simulationBoard[xMid, yMid + 1]     = 1;    // > Middle
-            simulationBoard[xMid + 1, yMid - 1] = 1;    // > Bottom
             simulationBoard[xMid + 1, yMid]     = 1;    // > Bottom
             simulationBoard[xMid + 1, yMid + 1] = 1;    // > Bottom
-
         }
 
         /// <summary>
