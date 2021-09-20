@@ -112,6 +112,12 @@ namespace Game_Of_Life
                     printedToUI = false;
                 }
             }
+
+            if (check_verboseOutput.Checked) {
+                GameOfLifeLogic.verboseOutput = true;
+            } else {
+                GameOfLifeLogic.verboseOutput = false;
+            }
         }
     }
 }

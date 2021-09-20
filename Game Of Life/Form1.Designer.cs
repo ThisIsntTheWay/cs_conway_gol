@@ -47,6 +47,7 @@ namespace Game_Of_Life
             this.timer_statisticsWDT = new System.Windows.Forms.Timer(this.components);
             this.label_printStatus = new System.Windows.Forms.Label();
             this.timer_miscUI = new System.Windows.Forms.Timer(this.components);
+            this.check_verboseOutput = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.input_boardDimensionX)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.input_boardDimensionY)).BeginInit();
             this.SuspendLayout();
@@ -153,7 +154,7 @@ namespace Game_Of_Life
             // label_bornCellsHead
             // 
             this.label_bornCellsHead.AutoSize = true;
-            this.label_bornCellsHead.Location = new System.Drawing.Point(14, 202);
+            this.label_bornCellsHead.Location = new System.Drawing.Point(14, 208);
             this.label_bornCellsHead.Name = "label_bornCellsHead";
             this.label_bornCellsHead.Size = new System.Drawing.Size(55, 13);
             this.label_bornCellsHead.TabIndex = 11;
@@ -162,7 +163,7 @@ namespace Game_Of_Life
             // label_cellBirthsValue
             // 
             this.label_cellBirthsValue.AutoSize = true;
-            this.label_cellBirthsValue.Location = new System.Drawing.Point(72, 202);
+            this.label_cellBirthsValue.Location = new System.Drawing.Point(72, 208);
             this.label_cellBirthsValue.Name = "label_cellBirthsValue";
             this.label_cellBirthsValue.Size = new System.Drawing.Size(13, 13);
             this.label_cellBirthsValue.TabIndex = 12;
@@ -171,7 +172,7 @@ namespace Game_Of_Life
             // label_cellDeathsValue
             // 
             this.label_cellDeathsValue.AutoSize = true;
-            this.label_cellDeathsValue.Location = new System.Drawing.Point(72, 215);
+            this.label_cellDeathsValue.Location = new System.Drawing.Point(72, 221);
             this.label_cellDeathsValue.Name = "label_cellDeathsValue";
             this.label_cellDeathsValue.Size = new System.Drawing.Size(13, 13);
             this.label_cellDeathsValue.TabIndex = 14;
@@ -180,7 +181,7 @@ namespace Game_Of_Life
             // label_cellDeathsHead
             // 
             this.label_cellDeathsHead.AutoSize = true;
-            this.label_cellDeathsHead.Location = new System.Drawing.Point(14, 215);
+            this.label_cellDeathsHead.Location = new System.Drawing.Point(14, 221);
             this.label_cellDeathsHead.Name = "label_cellDeathsHead";
             this.label_cellDeathsHead.Size = new System.Drawing.Size(62, 13);
             this.label_cellDeathsHead.TabIndex = 13;
@@ -216,11 +217,22 @@ namespace Game_Of_Life
             this.timer_miscUI.Enabled = true;
             this.timer_miscUI.Tick += new System.EventHandler(this.timer_miscUI_Tick);
             // 
+            // check_verboseOutput
+            // 
+            this.check_verboseOutput.AutoSize = true;
+            this.check_verboseOutput.Location = new System.Drawing.Point(82, 182);
+            this.check_verboseOutput.Name = "check_verboseOutput";
+            this.check_verboseOutput.Size = new System.Drawing.Size(65, 17);
+            this.check_verboseOutput.TabIndex = 17;
+            this.check_verboseOutput.Text = "Verbose";
+            this.check_verboseOutput.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(264, 240);
+            this.ClientSize = new System.Drawing.Size(264, 241);
+            this.Controls.Add(this.check_verboseOutput);
             this.Controls.Add(this.label_printStatus);
             this.Controls.Add(this.check_autoSim);
             this.Controls.Add(this.label_cellDeathsValue);
@@ -264,6 +276,7 @@ namespace Game_Of_Life
         private System.Windows.Forms.Timer timer_statisticsWDT;
         private System.Windows.Forms.Label label_printStatus;
         private System.Windows.Forms.Timer timer_miscUI;
+        private System.Windows.Forms.CheckBox check_verboseOutput;
     }
 }
 

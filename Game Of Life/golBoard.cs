@@ -78,7 +78,7 @@ namespace Game_Of_Life {
                 }
 
                 // Temp save bmp as jpg
-                bmp.Save(@"C:\temp\output.bmp", System.Drawing.Imaging.ImageFormat.Bmp);
+                bmp.Save(@"C:\temp\golBoard.bmp", System.Drawing.Imaging.ImageFormat.Bmp);
 
                 // Draw generated image
                 //Console.WriteLine(" > Attempting to populate picBox....");
