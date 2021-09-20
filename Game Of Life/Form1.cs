@@ -40,7 +40,7 @@ namespace Game_Of_Life
             canvasForm.StartPosition = FormStartPosition.Manual;
             canvasForm.Width = 50;
             canvasForm.Height = 50; ;
-            canvasForm.Location = new Point(this.Top, this.Right);
+            canvasForm.Location = new Point(this.Right, this.Top);
             canvasForm.Show();
         }
 
@@ -48,7 +48,7 @@ namespace Game_Of_Life
             base.OnLocationChanged(e);
 
             if (canvasForm != null) {
-                canvasForm.Location = new Point(this.Top, this.Right);
+                canvasForm.Location = new Point(this.Right, this.Top);
             }
         }
         /*  --------------------------------------------------------------------- */
