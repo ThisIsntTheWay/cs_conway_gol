@@ -86,5 +86,10 @@ namespace Game_Of_Life {
                 picBox_golBoard.Image = (Bitmap)bmp.Clone();
             }
         }
+
+        private void timer_golBoardRender_Tick(object sender, EventArgs e) {
+            if (GameOfLifeLogic.drawGrid) { renderBoard(true); }
+            else { renderBoard(false); }
+        }
     }
 }
