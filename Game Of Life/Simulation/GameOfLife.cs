@@ -10,6 +10,8 @@ namespace Game_Of_Life
     public class GameOfLife
     {
         public static int[,] simulationBoard;
+        public static bool newBoard = true;
+
         internal static bool hasInitialized = false;
 
         /// <summary>
@@ -19,32 +21,13 @@ namespace Game_Of_Life
         /// <param name="x_length">Max possible length of X axis.</param>
         /// <param name="y_length">max possible length of Y axis.</param>
         public static void setBoardSize(int x_length, int y_length) {
-            // Sanity checks
-            if (x_length % 2 != 0) {
-                Console.ForegroundColor = ConsoleColor.Yellow;
-                Console.WriteLine("Warning: x_length ({0}) not divisible by two.", x_length);
-                Console.WriteLine("Decreased by 1 to: {0}.", x_length - 1);
-                Console.ResetColor();
-
-                x_length -= 1;
-            }
-
-            if (y_length % 2 != 0) {
-                Console.ForegroundColor = ConsoleColor.Yellow;
-                Console.WriteLine("Warning: y_ength ({0}) not divisible by two.", y_length);
-                Console.WriteLine("Decreased by 1 to: {0}.", y_length - 1);
-                Console.ResetColor();
-
-                y_length -= 1;
-            }
+            newBoard = true;
 
             // Init arrays
             simulationBoard = new int[x_length, y_length];
 
             Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine("[i] A simulation board with size '{0}' x '{1}' has been initialized.", x_length, y_length);
-            Console.WriteLine(" > X Length: {0}", simulationBoard.GetLength(0));
-            Console.WriteLine(" > Y Length: {0}", simulationBoard.GetLength(1));
             Console.ResetColor();
 
             hasInitialized = true;
