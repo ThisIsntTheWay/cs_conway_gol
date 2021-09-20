@@ -9,9 +9,10 @@ namespace Game_Of_Life.Simulation {
     public class GameOfLifeLogic {
         private static int[,] cacheBoard;       // Copy of simulationBoard
         public static bool simulationState;     // State of simulation
-        public static bool verboseOutput = false;
-        public static bool verboseOutput2 = true;
         public static bool drawGrid = false;
+        
+        public static bool verboseOutput = false;
+        public static bool verboseOutput2 = false;
 
         public static int generation;           // Current generation
         public static int cellMutations;        // Cell update count
@@ -91,7 +92,9 @@ namespace Game_Of_Life.Simulation {
                         }
                     }
                 }
-                Console.WriteLine(" ");
+
+                if (verboseOutput2)
+                    Console.WriteLine(" ");
             }
 
             // Compute dead cells
