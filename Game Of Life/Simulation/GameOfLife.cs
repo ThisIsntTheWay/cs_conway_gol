@@ -101,6 +101,13 @@ namespace Game_Of_Life
             Console.ResetColor();
 
             // Populate array - Assuming at least 50x50
+            // Clear array
+            for (int a = 0; a < x; a++) {
+                for (int b = 0; b < y; b++) {
+                    simulationBoard[a, b] = 0;
+                }
+            }
+
             // Glider
             var xMid = x / 2;
             var yMid = y / 2;
