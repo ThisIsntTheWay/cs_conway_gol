@@ -90,8 +90,10 @@ namespace Game_Of_Life
         private void check_autoSim_CheckedChanged(object sender, EventArgs e){
             if (check_autoSim.Checked) {
                 GameOfLifeLogic.simulationState = true;
+                but_simulationAdvance.Enabled = false;
             } else {
                 GameOfLifeLogic.simulationState = false;
+                but_simulationAdvance.Enabled = true;
             }
         }
 
@@ -114,6 +116,11 @@ namespace Game_Of_Life
                 GameOfLifeLogic.verboseOutput = false;
                 check_autoSim.Enabled = true;
             }
+        }
+
+        private void check_drawGrid_CheckedChanged(object sender, EventArgs e) {
+            if (check_drawGrid.Checked) { GameOfLifeLogic.drawGrid = true; }
+            else { GameOfLifeLogic.drawGrid = false; }
         }
 
         private void timer_miscUI_Tick(object sender, EventArgs e) {

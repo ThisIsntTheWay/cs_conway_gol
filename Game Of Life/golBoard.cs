@@ -21,7 +21,8 @@ namespace Game_Of_Life {
         private void golBoard_Load(object sender, EventArgs e) {}
 
         private void timer_golLogic_Tick(object sender, EventArgs e) {
-            renderBoard();
+            if (GameOfLifeLogic.drawGrid) { renderBoard(true); }
+            else { renderBoard(false); }
 
             /*
             // Dynamically resize picture box and window.
@@ -44,7 +45,8 @@ namespace Game_Of_Life {
         /// <summary>
         /// Draws the simulation Board as rectangles.
         /// </summary>
-        public void renderBoard() {
+        /// <param name="grid">If set to true, draw a grid.</param>
+        public void renderBoard(bool grid) {
             //Console.WriteLine("renderBoard() called...");
 
             var l = simulationBoard.GetLength(1);
@@ -59,7 +61,8 @@ namespace Game_Of_Life {
 
                 // Define sizes
                 var globCellSize = 10;
-                var cellSize = new Size(globCellSize, globCellSize);
+                var cellSize = (grid) ? new Size(globCellSize - 1, globCellSize - 1) :
+                                        new Size(globCellSize, globCellSize);
 
                 int x_length = GameOfLife.simulationBoard.GetLength(0);
                 int y_length = GameOfLife.simulationBoard.GetLength(1);

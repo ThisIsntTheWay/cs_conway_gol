@@ -11,6 +11,7 @@ namespace Game_Of_Life.Simulation {
         public static bool simulationState;     // State of simulation
         public static bool verboseOutput = false;
         public static bool verboseOutput2 = false;
+        public static bool drawGrid = false;
 
         public static int generation;           // Current generation
         public static int cellMutations;        // Cell update count

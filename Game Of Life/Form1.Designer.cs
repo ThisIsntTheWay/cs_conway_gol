@@ -48,6 +48,8 @@ namespace Game_Of_Life
             this.label_printStatus = new System.Windows.Forms.Label();
             this.timer_miscUI = new System.Windows.Forms.Timer(this.components);
             this.check_verboseOutput = new System.Windows.Forms.CheckBox();
+            this.label_renderHead = new System.Windows.Forms.Label();
+            this.check_drawGrid = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.input_boardDimensionX)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.input_boardDimensionY)).BeginInit();
             this.SuspendLayout();
@@ -63,13 +65,14 @@ namespace Game_Of_Life
             // 
             // but_applyBoardDimensions
             // 
-            this.but_applyBoardDimensions.Location = new System.Drawing.Point(15, 51);
+            this.but_applyBoardDimensions.BackColor = System.Drawing.SystemColors.Menu;
+            this.but_applyBoardDimensions.Location = new System.Drawing.Point(117, 25);
             this.but_applyBoardDimensions.Name = "but_applyBoardDimensions";
-            this.but_applyBoardDimensions.Size = new System.Drawing.Size(70, 23);
+            this.but_applyBoardDimensions.Size = new System.Drawing.Size(43, 23);
             this.but_applyBoardDimensions.TabIndex = 1;
             this.but_applyBoardDimensions.Text = "Apply";
             this.but_applyBoardDimensions.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.but_applyBoardDimensions.UseVisualStyleBackColor = true;
+            this.but_applyBoardDimensions.UseVisualStyleBackColor = false;
             this.but_applyBoardDimensions.Click += new System.EventHandler(this.but_applyBoardDimensions_Click);
             // 
             // label_boardDimensionsDelimiter
@@ -109,7 +112,7 @@ namespace Game_Of_Life
             // but_populateBoard
             // 
             this.but_populateBoard.Enabled = false;
-            this.but_populateBoard.Location = new System.Drawing.Point(15, 80);
+            this.but_populateBoard.Location = new System.Drawing.Point(15, 52);
             this.but_populateBoard.Name = "but_populateBoard";
             this.but_populateBoard.Size = new System.Drawing.Size(70, 23);
             this.but_populateBoard.TabIndex = 7;
@@ -121,11 +124,11 @@ namespace Game_Of_Life
             // but_showSimulationBoard
             // 
             this.but_showSimulationBoard.Enabled = false;
-            this.but_showSimulationBoard.Location = new System.Drawing.Point(15, 109);
+            this.but_showSimulationBoard.Location = new System.Drawing.Point(15, 81);
             this.but_showSimulationBoard.Name = "but_showSimulationBoard";
             this.but_showSimulationBoard.Size = new System.Drawing.Size(70, 23);
             this.but_showSimulationBoard.TabIndex = 8;
-            this.but_showSimulationBoard.Text = "Print board";
+            this.but_showSimulationBoard.Text = "Print";
             this.but_showSimulationBoard.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.but_showSimulationBoard.UseVisualStyleBackColor = true;
             this.but_showSimulationBoard.Click += new System.EventHandler(this.but_showSimulationBoard_Click);
@@ -133,16 +136,17 @@ namespace Game_Of_Life
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(14, 144);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(12, 114);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(90, 13);
+            this.label1.Size = new System.Drawing.Size(108, 13);
             this.label1.TabIndex = 9;
             this.label1.Text = "Simulation control";
             // 
             // but_simulationAdvance
             // 
             this.but_simulationAdvance.Enabled = false;
-            this.but_simulationAdvance.Location = new System.Drawing.Point(15, 160);
+            this.but_simulationAdvance.Location = new System.Drawing.Point(15, 130);
             this.but_simulationAdvance.Name = "but_simulationAdvance";
             this.but_simulationAdvance.Size = new System.Drawing.Size(61, 23);
             this.but_simulationAdvance.TabIndex = 10;
@@ -154,7 +158,7 @@ namespace Game_Of_Life
             // label_bornCellsHead
             // 
             this.label_bornCellsHead.AutoSize = true;
-            this.label_bornCellsHead.Location = new System.Drawing.Point(14, 208);
+            this.label_bornCellsHead.Location = new System.Drawing.Point(14, 176);
             this.label_bornCellsHead.Name = "label_bornCellsHead";
             this.label_bornCellsHead.Size = new System.Drawing.Size(55, 13);
             this.label_bornCellsHead.TabIndex = 11;
@@ -163,7 +167,7 @@ namespace Game_Of_Life
             // label_cellBirthsValue
             // 
             this.label_cellBirthsValue.AutoSize = true;
-            this.label_cellBirthsValue.Location = new System.Drawing.Point(72, 208);
+            this.label_cellBirthsValue.Location = new System.Drawing.Point(73, 176);
             this.label_cellBirthsValue.Name = "label_cellBirthsValue";
             this.label_cellBirthsValue.Size = new System.Drawing.Size(13, 13);
             this.label_cellBirthsValue.TabIndex = 12;
@@ -172,7 +176,7 @@ namespace Game_Of_Life
             // label_cellDeathsValue
             // 
             this.label_cellDeathsValue.AutoSize = true;
-            this.label_cellDeathsValue.Location = new System.Drawing.Point(72, 221);
+            this.label_cellDeathsValue.Location = new System.Drawing.Point(73, 189);
             this.label_cellDeathsValue.Name = "label_cellDeathsValue";
             this.label_cellDeathsValue.Size = new System.Drawing.Size(13, 13);
             this.label_cellDeathsValue.TabIndex = 14;
@@ -181,7 +185,7 @@ namespace Game_Of_Life
             // label_cellDeathsHead
             // 
             this.label_cellDeathsHead.AutoSize = true;
-            this.label_cellDeathsHead.Location = new System.Drawing.Point(14, 221);
+            this.label_cellDeathsHead.Location = new System.Drawing.Point(14, 189);
             this.label_cellDeathsHead.Name = "label_cellDeathsHead";
             this.label_cellDeathsHead.Size = new System.Drawing.Size(62, 13);
             this.label_cellDeathsHead.TabIndex = 13;
@@ -190,7 +194,7 @@ namespace Game_Of_Life
             // check_autoSim
             // 
             this.check_autoSim.AutoSize = true;
-            this.check_autoSim.Location = new System.Drawing.Point(82, 164);
+            this.check_autoSim.Location = new System.Drawing.Point(82, 134);
             this.check_autoSim.Name = "check_autoSim";
             this.check_autoSim.Size = new System.Drawing.Size(93, 17);
             this.check_autoSim.TabIndex = 15;
@@ -220,7 +224,7 @@ namespace Game_Of_Life
             // check_verboseOutput
             // 
             this.check_verboseOutput.AutoSize = true;
-            this.check_verboseOutput.Location = new System.Drawing.Point(82, 182);
+            this.check_verboseOutput.Location = new System.Drawing.Point(82, 152);
             this.check_verboseOutput.Name = "check_verboseOutput";
             this.check_verboseOutput.Size = new System.Drawing.Size(65, 17);
             this.check_verboseOutput.TabIndex = 17;
@@ -228,11 +232,35 @@ namespace Game_Of_Life
             this.check_verboseOutput.UseVisualStyleBackColor = true;
             this.check_verboseOutput.CheckedChanged += new System.EventHandler(this.check_verboseOutput_CheckedChanged);
             // 
+            // label_renderHead
+            // 
+            this.label_renderHead.AutoSize = true;
+            this.label_renderHead.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_renderHead.Location = new System.Drawing.Point(14, 217);
+            this.label_renderHead.Name = "label_renderHead";
+            this.label_renderHead.Size = new System.Drawing.Size(96, 13);
+            this.label_renderHead.TabIndex = 18;
+            this.label_renderHead.Text = "Render settings";
+            // 
+            // check_drawGrid
+            // 
+            this.check_drawGrid.AutoSize = true;
+            this.check_drawGrid.Location = new System.Drawing.Point(17, 233);
+            this.check_drawGrid.Name = "check_drawGrid";
+            this.check_drawGrid.Size = new System.Drawing.Size(80, 17);
+            this.check_drawGrid.TabIndex = 19;
+            this.check_drawGrid.Text = "Display grid";
+            this.check_drawGrid.UseVisualStyleBackColor = true;
+            this.check_drawGrid.CheckedChanged += new System.EventHandler(this.check_drawGrid_CheckedChanged);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(264, 241);
+            this.BackColor = System.Drawing.SystemColors.Window;
+            this.ClientSize = new System.Drawing.Size(202, 261);
+            this.Controls.Add(this.check_drawGrid);
+            this.Controls.Add(this.label_renderHead);
             this.Controls.Add(this.check_verboseOutput);
             this.Controls.Add(this.label_printStatus);
             this.Controls.Add(this.check_autoSim);
@@ -278,6 +306,8 @@ namespace Game_Of_Life
         private System.Windows.Forms.Label label_printStatus;
         private System.Windows.Forms.Timer timer_miscUI;
         private System.Windows.Forms.CheckBox check_verboseOutput;
+        private System.Windows.Forms.Label label_renderHead;
+        public System.Windows.Forms.CheckBox check_drawGrid;
     }
 }
 
