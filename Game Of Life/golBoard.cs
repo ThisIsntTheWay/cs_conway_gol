@@ -56,7 +56,6 @@ namespace Game_Of_Life {
             using (var gfx = System.Drawing.Graphics.FromImage(bmp))
             using (var brush = new System.Drawing.SolidBrush(Color.White))
             {
-                //Console.WriteLine(" > Attempting to draw....");
                 gfx.Clear(Color.Black);
 
                 // Define sizes
@@ -79,6 +78,9 @@ namespace Game_Of_Life {
                         }
                     }
                 }
+                
+                // Align image the correct way
+                bmp.RotateFlip(RotateFlipType.Rotate90FlipX);
 
                 // Temp save bmp as jpg
                 bmp.Save(@"C:\temp\golBoard.bmp", System.Drawing.Imaging.ImageFormat.Bmp);
