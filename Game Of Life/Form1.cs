@@ -15,6 +15,9 @@ namespace Game_Of_Life
 {
     public partial class Form1 : Form
     {
+        private static bool printedToUI;
+        private static long startMillis, currMillis;
+
         public Form1() {
             InitializeComponent();
 
@@ -73,6 +76,11 @@ namespace Game_Of_Life
                     Console.WriteLine(" ");
                 }
             }
+
+            // Notify UI
+            printedToUI = true;
+            startMillis = DateTimeOffset.Now.ToUnixTimeSeconds();
+            label_printStatus.Text = @"Saved to C:\temp\.";
         }
 
         private void but_simulationAdvance_Click(object sender, EventArgs e) {
@@ -91,6 +99,19 @@ namespace Game_Of_Life
             // Update statistics
             label_cellBirthsValue.Text = GameOfLifeLogic.cellBirths.ToString();
             label_cellDeathsValue.Text = GameOfLifeLogic.cellDeaths.ToString();
+        }
+
+        private void timer_miscUI_Tick(object sender, EventArgs e) {
+            currMillis = DateTimeOffset.Now.ToUnixTimeSeconds();
+
+            // Reset label_printStatus text
+            if (printedToUI) {
+                //Console.WriteLine("[i] currMillis ({0}) - startMillis {1} -> {2}", currMillis, startMillis, (currMillis - startMillis));
+                if (currMillis - startMillis > (2)){
+                    label_printStatus.Text = " ";
+                    printedToUI = false;
+                }
+            }
         }
     }
 }

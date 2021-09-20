@@ -45,6 +45,8 @@ namespace Game_Of_Life
             this.label_cellDeathsHead = new System.Windows.Forms.Label();
             this.check_autoSim = new System.Windows.Forms.CheckBox();
             this.timer_statisticsWDT = new System.Windows.Forms.Timer(this.components);
+            this.label_printStatus = new System.Windows.Forms.Label();
+            this.timer_miscUI = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.input_boardDimensionX)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.input_boardDimensionY)).BeginInit();
             this.SuspendLayout();
@@ -62,7 +64,7 @@ namespace Game_Of_Life
             // 
             this.but_applyBoardDimensions.Location = new System.Drawing.Point(15, 51);
             this.but_applyBoardDimensions.Name = "but_applyBoardDimensions";
-            this.but_applyBoardDimensions.Size = new System.Drawing.Size(75, 23);
+            this.but_applyBoardDimensions.Size = new System.Drawing.Size(70, 23);
             this.but_applyBoardDimensions.TabIndex = 1;
             this.but_applyBoardDimensions.Text = "Apply";
             this.but_applyBoardDimensions.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -108,7 +110,7 @@ namespace Game_Of_Life
             this.but_populateBoard.Enabled = false;
             this.but_populateBoard.Location = new System.Drawing.Point(15, 80);
             this.but_populateBoard.Name = "but_populateBoard";
-            this.but_populateBoard.Size = new System.Drawing.Size(75, 23);
+            this.but_populateBoard.Size = new System.Drawing.Size(70, 23);
             this.but_populateBoard.TabIndex = 7;
             this.but_populateBoard.Text = "Populate";
             this.but_populateBoard.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -120,7 +122,7 @@ namespace Game_Of_Life
             this.but_showSimulationBoard.Enabled = false;
             this.but_showSimulationBoard.Location = new System.Drawing.Point(15, 109);
             this.but_showSimulationBoard.Name = "but_showSimulationBoard";
-            this.but_showSimulationBoard.Size = new System.Drawing.Size(75, 23);
+            this.but_showSimulationBoard.Size = new System.Drawing.Size(70, 23);
             this.but_showSimulationBoard.TabIndex = 8;
             this.but_showSimulationBoard.Text = "Print board";
             this.but_showSimulationBoard.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -130,7 +132,7 @@ namespace Game_Of_Life
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 144);
+            this.label1.Location = new System.Drawing.Point(14, 144);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(90, 13);
             this.label1.TabIndex = 9;
@@ -141,7 +143,7 @@ namespace Game_Of_Life
             this.but_simulationAdvance.Enabled = false;
             this.but_simulationAdvance.Location = new System.Drawing.Point(15, 160);
             this.but_simulationAdvance.Name = "but_simulationAdvance";
-            this.but_simulationAdvance.Size = new System.Drawing.Size(75, 23);
+            this.but_simulationAdvance.Size = new System.Drawing.Size(61, 23);
             this.but_simulationAdvance.TabIndex = 10;
             this.but_simulationAdvance.Text = "Advance";
             this.but_simulationAdvance.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -187,7 +189,7 @@ namespace Game_Of_Life
             // check_autoSim
             // 
             this.check_autoSim.AutoSize = true;
-            this.check_autoSim.Location = new System.Drawing.Point(96, 164);
+            this.check_autoSim.Location = new System.Drawing.Point(82, 164);
             this.check_autoSim.Name = "check_autoSim";
             this.check_autoSim.Size = new System.Drawing.Size(93, 17);
             this.check_autoSim.TabIndex = 15;
@@ -200,11 +202,26 @@ namespace Game_Of_Life
             this.timer_statisticsWDT.Enabled = true;
             this.timer_statisticsWDT.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // label_printStatus
+            // 
+            this.label_printStatus.AutoSize = true;
+            this.label_printStatus.ForeColor = System.Drawing.Color.MediumSeaGreen;
+            this.label_printStatus.Location = new System.Drawing.Point(91, 114);
+            this.label_printStatus.Name = "label_printStatus";
+            this.label_printStatus.Size = new System.Drawing.Size(0, 13);
+            this.label_printStatus.TabIndex = 16;
+            // 
+            // timer_miscUI
+            // 
+            this.timer_miscUI.Enabled = true;
+            this.timer_miscUI.Tick += new System.EventHandler(this.timer_miscUI_Tick);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(264, 240);
+            this.Controls.Add(this.label_printStatus);
             this.Controls.Add(this.check_autoSim);
             this.Controls.Add(this.label_cellDeathsValue);
             this.Controls.Add(this.label_cellDeathsHead);
@@ -245,6 +262,8 @@ namespace Game_Of_Life
         private System.Windows.Forms.Label label_cellDeathsHead;
         private System.Windows.Forms.CheckBox check_autoSim;
         private System.Windows.Forms.Timer timer_statisticsWDT;
+        private System.Windows.Forms.Label label_printStatus;
+        private System.Windows.Forms.Timer timer_miscUI;
     }
 }
 

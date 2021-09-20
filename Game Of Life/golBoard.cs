@@ -47,7 +47,10 @@ namespace Game_Of_Life {
         public void renderBoard() {
             //Console.WriteLine("renderBoard() called...");
 
-            using (var bmp = new System.Drawing.Bitmap(simulationBoard.GetLength(1), simulationBoard.GetLength(0)))
+            var l = simulationBoard.GetLength(1);
+            var w = simulationBoard.GetLength(0);
+
+            using (var bmp = new System.Drawing.Bitmap(l * 10, w * 10))
             using (var gfx = System.Drawing.Graphics.FromImage(bmp))
             using (var brush = new System.Drawing.SolidBrush(Color.White))
             {
@@ -55,7 +58,7 @@ namespace Game_Of_Life {
                 gfx.Clear(Color.Black);
 
                 // Define sizes
-                var globCellSize = 1;
+                var globCellSize = 10;
                 var cellSize = new Size(globCellSize, globCellSize);
 
                 int x_length = GameOfLife.simulationBoard.GetLength(0);
