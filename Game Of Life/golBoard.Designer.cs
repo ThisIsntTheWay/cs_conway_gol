@@ -57,7 +57,7 @@ namespace Game_Of_Life {
             this.Controls.Add(this.picBox_golBoard);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "golBoardView";
-            this.Text = "golBoardView";
+            this.Text = "Game of Life - View";
             this.Load += new System.EventHandler(this.golBoard_Load);
             ((System.ComponentModel.ISupportInitialize)(this.picBox_golBoard)).EndInit();
             this.ResumeLayout(false);
