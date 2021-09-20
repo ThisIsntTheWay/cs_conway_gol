@@ -53,6 +53,7 @@ namespace Game_Of_Life
             this.but_populateBoardFixed = new System.Windows.Forms.Button();
             this.label_generationValue = new System.Windows.Forms.Label();
             this.label_generationHead = new System.Windows.Forms.Label();
+            this.label_sysStatusText = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.input_boardDimensionX)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.input_boardDimensionY)).BeginInit();
             this.SuspendLayout();
@@ -161,7 +162,7 @@ namespace Game_Of_Life
             // label_bornCellsHead
             // 
             this.label_bornCellsHead.AutoSize = true;
-            this.label_bornCellsHead.Location = new System.Drawing.Point(14, 176);
+            this.label_bornCellsHead.Location = new System.Drawing.Point(14, 177);
             this.label_bornCellsHead.Name = "label_bornCellsHead";
             this.label_bornCellsHead.Size = new System.Drawing.Size(55, 13);
             this.label_bornCellsHead.TabIndex = 11;
@@ -170,7 +171,7 @@ namespace Game_Of_Life
             // label_cellBirthsValue
             // 
             this.label_cellBirthsValue.AutoSize = true;
-            this.label_cellBirthsValue.Location = new System.Drawing.Point(82, 176);
+            this.label_cellBirthsValue.Location = new System.Drawing.Point(82, 177);
             this.label_cellBirthsValue.Name = "label_cellBirthsValue";
             this.label_cellBirthsValue.Size = new System.Drawing.Size(13, 13);
             this.label_cellBirthsValue.TabIndex = 12;
@@ -179,7 +180,7 @@ namespace Game_Of_Life
             // label_cellDeathsValue
             // 
             this.label_cellDeathsValue.AutoSize = true;
-            this.label_cellDeathsValue.Location = new System.Drawing.Point(82, 189);
+            this.label_cellDeathsValue.Location = new System.Drawing.Point(82, 190);
             this.label_cellDeathsValue.Name = "label_cellDeathsValue";
             this.label_cellDeathsValue.Size = new System.Drawing.Size(13, 13);
             this.label_cellDeathsValue.TabIndex = 14;
@@ -188,7 +189,7 @@ namespace Game_Of_Life
             // label_cellDeathsHead
             // 
             this.label_cellDeathsHead.AutoSize = true;
-            this.label_cellDeathsHead.Location = new System.Drawing.Point(14, 189);
+            this.label_cellDeathsHead.Location = new System.Drawing.Point(14, 190);
             this.label_cellDeathsHead.Name = "label_cellDeathsHead";
             this.label_cellDeathsHead.Size = new System.Drawing.Size(62, 13);
             this.label_cellDeathsHead.TabIndex = 13;
@@ -197,7 +198,7 @@ namespace Game_Of_Life
             // check_autoSim
             // 
             this.check_autoSim.AutoSize = true;
-            this.check_autoSim.Location = new System.Drawing.Point(82, 134);
+            this.check_autoSim.Location = new System.Drawing.Point(82, 131);
             this.check_autoSim.Name = "check_autoSim";
             this.check_autoSim.Size = new System.Drawing.Size(93, 17);
             this.check_autoSim.TabIndex = 15;
@@ -228,7 +229,7 @@ namespace Game_Of_Life
             // check_verboseOutput
             // 
             this.check_verboseOutput.AutoSize = true;
-            this.check_verboseOutput.Location = new System.Drawing.Point(82, 152);
+            this.check_verboseOutput.Location = new System.Drawing.Point(82, 151);
             this.check_verboseOutput.Name = "check_verboseOutput";
             this.check_verboseOutput.Size = new System.Drawing.Size(65, 17);
             this.check_verboseOutput.TabIndex = 17;
@@ -240,7 +241,7 @@ namespace Game_Of_Life
             // 
             this.label_renderHead.AutoSize = true;
             this.label_renderHead.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_renderHead.Location = new System.Drawing.Point(15, 239);
+            this.label_renderHead.Location = new System.Drawing.Point(15, 228);
             this.label_renderHead.Name = "label_renderHead";
             this.label_renderHead.Size = new System.Drawing.Size(96, 13);
             this.label_renderHead.TabIndex = 18;
@@ -249,7 +250,7 @@ namespace Game_Of_Life
             // check_drawGrid
             // 
             this.check_drawGrid.AutoSize = true;
-            this.check_drawGrid.Location = new System.Drawing.Point(18, 255);
+            this.check_drawGrid.Location = new System.Drawing.Point(18, 244);
             this.check_drawGrid.Name = "check_drawGrid";
             this.check_drawGrid.Size = new System.Drawing.Size(80, 17);
             this.check_drawGrid.TabIndex = 19;
@@ -272,7 +273,7 @@ namespace Game_Of_Life
             // label_generationValue
             // 
             this.label_generationValue.AutoSize = true;
-            this.label_generationValue.Location = new System.Drawing.Point(82, 202);
+            this.label_generationValue.Location = new System.Drawing.Point(82, 203);
             this.label_generationValue.Name = "label_generationValue";
             this.label_generationValue.Size = new System.Drawing.Size(13, 13);
             this.label_generationValue.TabIndex = 22;
@@ -281,18 +282,29 @@ namespace Game_Of_Life
             // label_generationHead
             // 
             this.label_generationHead.AutoSize = true;
-            this.label_generationHead.Location = new System.Drawing.Point(14, 202);
+            this.label_generationHead.Location = new System.Drawing.Point(14, 203);
             this.label_generationHead.Name = "label_generationHead";
             this.label_generationHead.Size = new System.Drawing.Size(62, 13);
             this.label_generationHead.TabIndex = 21;
             this.label_generationHead.Text = "Generation:";
+            // 
+            // label_sysStatusText
+            // 
+            this.label_sysStatusText.AutoSize = true;
+            this.label_sysStatusText.ForeColor = System.Drawing.Color.Crimson;
+            this.label_sysStatusText.Location = new System.Drawing.Point(12, 267);
+            this.label_sysStatusText.Name = "label_sysStatusText";
+            this.label_sysStatusText.Size = new System.Drawing.Size(93, 13);
+            this.label_sysStatusText.TabIndex = 23;
+            this.label_sysStatusText.Text = "%SYS_STATUS%";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
-            this.ClientSize = new System.Drawing.Size(202, 284);
+            this.ClientSize = new System.Drawing.Size(202, 289);
+            this.Controls.Add(this.label_sysStatusText);
             this.Controls.Add(this.label_generationValue);
             this.Controls.Add(this.label_generationHead);
             this.Controls.Add(this.but_populateBoardFixed);
@@ -348,6 +360,7 @@ namespace Game_Of_Life
         private System.Windows.Forms.Button but_populateBoardFixed;
         private System.Windows.Forms.Label label_generationValue;
         private System.Windows.Forms.Label label_generationHead;
+        private System.Windows.Forms.Label label_sysStatusText;
     }
 }
 

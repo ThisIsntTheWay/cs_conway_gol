@@ -24,12 +24,9 @@ namespace Game_Of_Life
             golBoardView canvasForm = new golBoardView();
             canvasForm.Show();
 
-            // "Hide" printStatus label
+            // "Hide" status labels
             label_printStatus.Text = " ";
-
-            // Disable auto-advance if any verbose2 is true
-            if (GameOfLifeLogic.verboseOutput2)
-                check_autoSim.Enabled = false;
+            label_sysStatusText.Text = " ";
         }
 
         private void but_applyBoardDimensions_Click(object sender, EventArgs e) {
@@ -158,6 +155,12 @@ namespace Game_Of_Life
 
         private void timer_miscUI_Tick(object sender, EventArgs e) {
             currMillis = DateTimeOffset.Now.ToUnixTimeSeconds();
+
+            // Disable auto-advance if any verbose2 is true
+            if (GameOfLifeLogic.verboseOutput2) {
+                check_autoSim.Enabled = false;
+                label_sysStatusText.Text = "High verbosity.";
+            }
 
             // Reset label_printStatus text
             if (printedToUI) {

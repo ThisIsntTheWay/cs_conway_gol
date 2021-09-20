@@ -99,10 +99,6 @@ namespace Game_Of_Life.Simulation {
                 var thing = Console.ReadKey();
             }*/
 
-            // Game rules
-            // Any live cell with fewer than two live neighbours dies, as if by underpopulation.
-            bool canContinue = true;
-
             // Verbose output with padding
             if (verboseOutput) {
                 Console.Write("[i] Cell (");
