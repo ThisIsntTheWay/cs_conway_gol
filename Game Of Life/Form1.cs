@@ -17,12 +17,11 @@ namespace Game_Of_Life
     {
         private static bool printedToUI;
         private static long startMillis, currMillis;
+        
+        golBoardView canvasForm = new golBoardView();
 
         public Form1() {
             InitializeComponent();
-
-            golBoardView canvasForm = new golBoardView();
-            canvasForm.Show();
 
             // "Hide" status labels
             label_printStatus.Text = " ";
@@ -31,6 +30,28 @@ namespace Game_Of_Life
             // Set initial values for labels
             label_simSpeedValue.Text = scroll_simSpeed.Value.ToString() + " t/s";
         }
+        
+        /*  --------------------------------------------------------------------- */
+        // https://stackoverflow.com/a/8645399
+        // have golBoard follow this form (control)
+        protected override void OnLoad(EventArgs e) {
+            base.OnLoad(e);
+
+            canvasForm.StartPosition = FormStartPosition.Manual;
+            canvasForm.Width = 50;
+            canvasForm.Height = 50; ;
+            canvasForm.Location = new Point(this.Top, this.Right);
+            canvasForm.Show();
+        }
+
+        protected override void OnLocationChanged(EventArgs e) {
+            base.OnLocationChanged(e);
+
+            if (canvasForm != null) {
+                canvasForm.Location = new Point(this.Top, this.Right);
+            }
+        }
+        /*  --------------------------------------------------------------------- */
 
         private void but_applyBoardDimensions_Click(object sender, EventArgs e) {
             int x = Convert.ToInt32(input_boardDimensionX.Value);
