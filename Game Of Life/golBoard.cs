@@ -65,8 +65,6 @@ namespace Game_Of_Life {
                 for (int x = 0; x < x_length; x++) {
                     for (int y = 0; y < y_length; y++) {
                         if (simulationBoard[x, y] == 1) {
-                            //Console.WriteLine("! > Cell ({0}/{1}) is alive.", x, y);
-
                             // Draw cell by making a rectangle
                             var cLocation = new Point(x * globCellSize, y * globCellSize);
                             var cRect = new Rectangle(cLocation, cellSize);
@@ -82,14 +80,21 @@ namespace Game_Of_Life {
                 //bmp.Save(@"C:\temp\golBoard.bmp", System.Drawing.Imaging.ImageFormat.Bmp);
 
                 // Draw generated image
-                //Console.WriteLine(" > Attempting to populate picBox....");
                 picBox_golBoard.Image = (Bitmap)bmp.Clone();
             }
         }
 
         private void timer_golBoardRender_Tick(object sender, EventArgs e) {
+            // Render board
             if (GameOfLifeLogic.drawGrid) { renderBoard(true); }
             else { renderBoard(false); }
+            
+            // Dynamically resize window and picture box
+            var h = picBox_golBoard.Image.Height;
+            var w = picBox_golBoard.Image.Width;
+
+            this.Height = h + 40; picBox_golBoard.Height = h;
+            this.Width = w + 18; picBox_golBoard.Width = w;
         }
     }
 }

@@ -35,28 +35,29 @@ namespace Game_Of_Life {
             // 
             // picBox_golBoard
             // 
+            this.picBox_golBoard.BackgroundImage = global::Game_Of_Life.Properties.Resources.black_square;
             this.picBox_golBoard.Location = new System.Drawing.Point(1, 1);
             this.picBox_golBoard.Name = "picBox_golBoard";
-            this.picBox_golBoard.Size = new System.Drawing.Size(837, 437);
+            this.picBox_golBoard.Size = new System.Drawing.Size(111, 96);
             this.picBox_golBoard.TabIndex = 0;
             this.picBox_golBoard.TabStop = false;
             // 
             // timer_golBoardRender
             // 
             this.timer_golBoardRender.Enabled = true;
-            this.timer_golBoardRender.Interval = 10;
             this.timer_golBoardRender.Tick += new System.EventHandler(this.timer_golBoardRender_Tick);
             // 
             // golBoardView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(838, 435);
+            this.BackColor = System.Drawing.Color.Black;
+            this.ClientSize = new System.Drawing.Size(163, 140);
             this.ControlBox = false;
             this.Controls.Add(this.picBox_golBoard);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "golBoardView";
             this.Text = "golBoardView";
-            this.TopMost = true;
             this.Load += new System.EventHandler(this.golBoard_Load);
             ((System.ComponentModel.ISupportInitialize)(this.picBox_golBoard)).EndInit();
             this.ResumeLayout(false);
