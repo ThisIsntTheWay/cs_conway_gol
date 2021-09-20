@@ -45,7 +45,6 @@ namespace Game_Of_Life.Simulation {
             }
 
             // Get neighboring cells
-            int neighborCellState;
             int aliveCells = 0;
             int deadCells = 0;
 
@@ -55,12 +54,6 @@ namespace Game_Of_Life.Simulation {
             // Iterate X
             for (var a = -1; a < 2; a++) {
                 var xC = x + a;
-
-                if (verboseOutput2) {
-                    Console.ForegroundColor = ConsoleColor.Blue;
-                    Console.WriteLine("xC at: {0}", xC);
-                    Console.ResetColor();
-                }
                 
                 // OOB checks
                 if (!(xC < 0 || xC >= x_length)) { 
@@ -68,26 +61,29 @@ namespace Game_Of_Life.Simulation {
                     for (var b = -1; b < 2; b++) {
                         var yC = y + b;
 
-                        if (verboseOutput2)
-                            Console.Write("yC at: {0} ", yC);
-
                         // OOB checks
                         if (!(yC < 0 || yC >= y_length)) {
                             // Y is not out of bounds, get cellState
                             // > Skip check if Y & X == 0, as this would be the cell the whole neighbor check is based on
                             if (b == 0 && a == 0) {
-                                if (verboseOutput2)
-                                    Console.WriteLine("- Skipping self.");
+                                if (verboseOutput2) {
+                                    Console.ForegroundColor = ConsoleColor.Blue;
+                                    Console.Write("X");
+                                    Console.ResetColor();
+                                }
+
                             } else {
-                                neighborCellState = GameOfLife.simulationBoard[xC, yC];
-                                if (neighborCellState == 1) { aliveCells += 1; }
+
+                                if (GameOfLife.simulationBoard[xC, yC] == 1)
+                                    aliveCells += 1;
 
                                 if (verboseOutput2)
-                                    Console.WriteLine(" ");
+                                    Console.Write(GameOfLife.simulationBoard[xC, yC]);
                             }
                         }
                     }
                 }
+                Console.WriteLine(" ");
             }
 
             // Compute dead cells
