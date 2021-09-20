@@ -78,6 +78,8 @@ namespace Game_Of_Life
             int x = GameOfLife.simulationBoard.GetLength(0);
             int y = GameOfLife.simulationBoard.GetLength(1);
 
+            Console.WriteLine("Generation: {0}", GameOfLifeLogic.generation);
+
             // Print to file
             using (StreamWriter writer = new StreamWriter(@"C:\temp\golBoard.txt")) {
                 for (int a = 0; a < x; a++)
@@ -100,6 +102,8 @@ namespace Game_Of_Life
                     Console.WriteLine(" ");
                 }
             }
+            
+            Console.WriteLine(" ");
 
             // Notify UI
             printedToUI = true;
