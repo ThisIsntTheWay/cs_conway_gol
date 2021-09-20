@@ -63,22 +63,29 @@ namespace Game_Of_Life.Simulation {
 
                         // OOB checks
                         if (!(yC < 0 || yC >= y_length)) {
+                            var cState = GameOfLife.simulationBoard[xC, yC];
+
                             // Y is not out of bounds, get cellState
                             // > Skip check if Y & X == 0, as this would be the cell the whole neighbor check is based on
                             if (b == 0 && a == 0) {
                                 if (verboseOutput2) {
-                                    Console.ForegroundColor = ConsoleColor.Blue;
+                                    if (cState == 1) {
+                                        Console.ForegroundColor = ConsoleColor.DarkGreen;
+                                    } else {
+                                        Console.ForegroundColor = ConsoleColor.DarkRed;
+                                    }
+
                                     Console.Write("X");
                                     Console.ResetColor();
                                 }
 
                             } else {
 
-                                if (GameOfLife.simulationBoard[xC, yC] == 1)
+                                if (cState == 1)
                                     aliveCells += 1;
 
                                 if (verboseOutput2)
-                                    Console.Write(GameOfLife.simulationBoard[xC, yC]);
+                                    Console.Write(cState);
                             }
                         }
                     }
@@ -120,7 +127,7 @@ namespace Game_Of_Life.Simulation {
                 cellDeaths++;
             }
             
-            // Any live cell with two or three live neighbours lives on to the next generation.
+            /*// Any live cell with two or three live neighbours lives on to the next generation.
             else if (cellState == 1 && (aliveCells == 2 || aliveCells == 3)) {
                 cacheBoard[x, y] = 1;
 
@@ -129,7 +136,7 @@ namespace Game_Of_Life.Simulation {
                     Console.WriteLine("Life  (unchanged)");
                     Console.ResetColor();
                 }
-            }
+            }*/
             
             // Any live cell with more than three live neighbours dies, as if by overpopulation.
             else if (cellState == 1 && aliveCells > 3) {
