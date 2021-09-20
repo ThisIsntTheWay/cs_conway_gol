@@ -368,7 +368,9 @@ namespace Game_Of_Life
             this.Controls.Add(this.label_boardDimensionsDelimiter);
             this.Controls.Add(this.but_applyBoardDimensions);
             this.Controls.Add(this.label_boardDimensionsHead);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "Form1";
             this.Text = "Control";
             ((System.ComponentModel.ISupportInitialize)(this.input_boardDimensionX)).EndInit();
