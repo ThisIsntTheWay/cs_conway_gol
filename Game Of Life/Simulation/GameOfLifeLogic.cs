@@ -10,6 +10,7 @@ namespace Game_Of_Life.Simulation {
         private static int[,] cacheBoard;       // Copy of simulationBoard
         public static bool simulationState;     // State of simulation
         public static bool verboseOutput = false;
+        public static bool verboseOutput2 = false;
 
         public static int generation;           // Current generation
         public static int cellMutations;        // Cell update count
@@ -47,11 +48,21 @@ namespace Game_Of_Life.Simulation {
             byte aliveCells = 0;
             byte deadCells = 0;
 
+            // ToDo: Fix detection
+
             // General rule for every check: out of bounds array indexes will be treated as dead cells
             // Iterate X
+            int i = 0;
             for (var a = -1; a < 2; a++) {
                 var xC = x + a;
-                //Console.WriteLine("xC at: {0}", xC);
+                i++;
+
+                if (verboseOutput2) {
+                    Console.ForegroundColor = ConsoleColor.Blue;
+                    Console.WriteLine("xC at: {0}", xC);
+                    Console.ResetColor();
+                }
+                    
                 
                 // OOB checks
                 // > Always increment deadCells by 3 as the whole row is out of bounds
@@ -61,7 +72,10 @@ namespace Game_Of_Life.Simulation {
                     // Iterate Y
                     for (var b = -1; b < 2; b++) {
                         var yC = y + b;
-                        //Console.WriteLine("yC at: {0}", yC);
+                        i++;
+
+                        if (verboseOutput2)
+                            Console.Write("yC at: {0} ", yC);
                         
                         // OOB checks
                         if (yC < 0 || yC >= y_length) {
@@ -70,14 +84,26 @@ namespace Game_Of_Life.Simulation {
 
                         // Y is not out of bounds, get cellState
                         // > Skip check if Y & X == 0, as this would be the cell the whole neighbor check is based on
-                        else if (a != 0 && b != 0) {
+                        else if (b == 0 && a == 0) {
+                            if (verboseOutput2)
+                                Console.WriteLine("- Skipping self.");
+                        } else {
                             neighborCellState = GameOfLife.simulationBoard[xC, yC];
                             if (neighborCellState == 0) { deadCells += 1; }
                             else { aliveCells += 1; }
+                            
+                            if (verboseOutput2)
+                                Console.WriteLine(" ");
                         }
                     }
                 }
             }
+
+            /*if (verboseOutput) {
+                Console.WriteLine("[i] Checks ({0}) concluded for cell {1}/{2}.", i, x + 1, y + 1);
+                Console.WriteLine("Press any key to advance...");
+                var thing = Console.ReadKey();
+            }*/
 
             // Game rules
             // Any live cell with fewer than two live neighbours dies, as if by underpopulation.
