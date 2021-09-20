@@ -340,7 +340,7 @@ namespace Game_Of_Life
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
-            this.ClientSize = new System.Drawing.Size(202, 316);
+            this.ClientSize = new System.Drawing.Size(204, 316);
             this.Controls.Add(this.scroll_simSpeed);
             this.Controls.Add(this.label_simSpeedValue);
             this.Controls.Add(this.label_simSpeedHead);
