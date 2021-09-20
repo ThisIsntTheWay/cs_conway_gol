@@ -9,6 +9,7 @@ namespace Game_Of_Life
 {
     static class Program
     {
+
         /// <summary>
         /// The main entry point for the application.
         /// </summary>

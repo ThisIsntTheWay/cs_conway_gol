@@ -10,7 +10,7 @@ using Newtonsoft.Json;
 
 namespace Game_Of_Life.Configuration {
 
-    class Configuration {
+    class Configurator {
         public bool drawGrid { get; set; }
         public bool verbosity { get; set; }
         public int simSpeed { get; set; }
@@ -19,10 +19,14 @@ namespace Game_Of_Life.Configuration {
         /// <summary>
         /// Parses a configuration file
         /// </summary>
-        public Configuration parseConfiguration() {
+        public Configurator parseConfiguration() {
             if (File.Exists(cfgFile)) {
                 string configContents = File.ReadAllText(cfgFile);
-                Configuration f = JsonConvert.DeserializeObject<Configuration>(configContents);
+                Configurator f = JsonConvert.DeserializeObject<Configurator>(configContents);
+
+                Console.ForegroundColor = ConsoleColor.Blue;
+                Console.WriteLine("[c] drawGrid: {0}, verbosity: {1}, simSpeed: {2}", f.drawGrid, f.verbosity, f.simSpeed);
+                Console.ResetColor();
 
                 return f;
             } else {
@@ -31,7 +35,7 @@ namespace Game_Of_Life.Configuration {
                 Console.ResetColor();
 
                 // Create config with base values
-                var c = new Configuration();
+                var c = new Configurator();
                 c.drawGrid = true;
                 c.verbosity = false;
                 c.simSpeed = 10;

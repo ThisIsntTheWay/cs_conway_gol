@@ -100,8 +100,7 @@ namespace Game_Of_Life {
             }
         }
 
-        private void picBox_golBoard_Click(object sender, EventArgs e)
-        {
+        private void picBox_golBoard_Click(object sender, EventArgs e) {
             // Capture mouse clicks
             MouseEventArgs me = (MouseEventArgs)e;
             var coordinates = me.Location;
@@ -115,6 +114,10 @@ namespace Game_Of_Life {
 
             // Toggle cell
             GameOfLife.toggleCell(cell_x, cell_y);
+        }
+
+        private void picBox_golBoard_MouseHover(object sender, EventArgs e) {
+
         }
     }
 }

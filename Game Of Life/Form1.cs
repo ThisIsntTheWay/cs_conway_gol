@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 using System.Windows.Forms;
+using Game_Of_Life.Configuration;
 
 using Game_Of_Life.Simulation;
 
@@ -29,6 +30,14 @@ namespace Game_Of_Life
 
             // Set initial values for labels
             label_simSpeedValue.Text = scroll_simSpeed.Value.ToString() + " t/s";
+
+            // Read configuration
+            var c = new Configurator();
+            var f = c.parseConfiguration();
+
+            check_drawGrid.Checked = f.drawGrid;
+            check_verboseOutput.Checked = f.verbosity;
+            scroll_simSpeed.Value = f.simSpeed;
         }
         
         /*  --------------------------------------------------------------------- */
