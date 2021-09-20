@@ -119,7 +119,6 @@ namespace Game_Of_Life.Simulation {
                     Console.ResetColor();
                 }
 
-                cellBirths++;
                 canContinue = false;
             }
             
