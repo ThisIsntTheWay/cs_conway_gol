@@ -53,6 +53,11 @@ namespace Game_Of_Life
                 Console.ResetColor();
             
             but_showSimulationBoard.Enabled = true;
+            
+            // Reset statistics
+            GameOfLifeLogic.cellBirths = 0;
+            GameOfLifeLogic.cellDeaths = 0;
+            GameOfLifeLogic.generation = 0;
         }
         
         private void but_populateBoardFixed_Click(object sender, EventArgs e) {
@@ -62,6 +67,11 @@ namespace Game_Of_Life
                 Console.ResetColor();
             
             but_showSimulationBoard.Enabled = true;
+            
+            // Reset statistics
+            GameOfLifeLogic.cellBirths = 0;
+            GameOfLifeLogic.cellDeaths = 0;
+            GameOfLifeLogic.generation = 0;
         }
 
         private void but_showSimulationBoard_Click(object sender, EventArgs e) {

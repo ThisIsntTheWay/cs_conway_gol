@@ -170,7 +170,7 @@ namespace Game_Of_Life
             // label_cellBirthsValue
             // 
             this.label_cellBirthsValue.AutoSize = true;
-            this.label_cellBirthsValue.Location = new System.Drawing.Point(73, 176);
+            this.label_cellBirthsValue.Location = new System.Drawing.Point(82, 176);
             this.label_cellBirthsValue.Name = "label_cellBirthsValue";
             this.label_cellBirthsValue.Size = new System.Drawing.Size(13, 13);
             this.label_cellBirthsValue.TabIndex = 12;
@@ -179,7 +179,7 @@ namespace Game_Of_Life
             // label_cellDeathsValue
             // 
             this.label_cellDeathsValue.AutoSize = true;
-            this.label_cellDeathsValue.Location = new System.Drawing.Point(73, 189);
+            this.label_cellDeathsValue.Location = new System.Drawing.Point(82, 189);
             this.label_cellDeathsValue.Name = "label_cellDeathsValue";
             this.label_cellDeathsValue.Size = new System.Drawing.Size(13, 13);
             this.label_cellDeathsValue.TabIndex = 14;
@@ -272,7 +272,7 @@ namespace Game_Of_Life
             // label_generationValue
             // 
             this.label_generationValue.AutoSize = true;
-            this.label_generationValue.Location = new System.Drawing.Point(73, 202);
+            this.label_generationValue.Location = new System.Drawing.Point(82, 202);
             this.label_generationValue.Name = "label_generationValue";
             this.label_generationValue.Size = new System.Drawing.Size(13, 13);
             this.label_generationValue.TabIndex = 22;
