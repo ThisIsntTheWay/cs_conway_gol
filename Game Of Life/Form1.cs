@@ -26,6 +26,10 @@ namespace Game_Of_Life
 
             // "Hide" printStatus label
             label_printStatus.Text = " ";
+
+            // Disable auto-advance if any verbose2 is true
+            if (GameOfLifeLogic.verboseOutput2)
+                check_autoSim.Enabled = false;
         }
 
         private void but_applyBoardDimensions_Click(object sender, EventArgs e) {
