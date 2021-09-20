@@ -27,6 +27,9 @@ namespace Game_Of_Life
             // "Hide" status labels
             label_printStatus.Text = " ";
             label_sysStatusText.Text = " ";
+
+            // Set initial values for labels
+            label_simSpeedValue.Text = scroll_simSpeed.Value.ToString() + " t/s";
         }
 
         private void but_applyBoardDimensions_Click(object sender, EventArgs e) {
@@ -160,12 +163,14 @@ namespace Game_Of_Life
         }
 
         private void scroll_simSpeed_Scroll(object sender, ScrollEventArgs e) {
-            var simSpeed = scroll_simSpeed.Value;
+            // Invert simSpeed as lower value = faster ticks.
+            // If we didn't to this, then the right side of the slider would be the slowest, which wouldn't make much sense
+            var simSpeed = scroll_simSpeed.Maximum - scroll_simSpeed.Value;
 
             // Prevent simsSpeed from reaching 0 to cirucment ArgumentOutOfRangeException
             if (simSpeed < 1) simSpeed = 1;
 
-            label_simSpeedValue.Text = simSpeed + " t/s";
+            label_simSpeedValue.Text = scroll_simSpeed.Value + " t/s";
             timer_golLogic.Interval = simSpeed;
         }
 
