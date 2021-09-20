@@ -36,19 +36,30 @@ namespace Game_Of_Life
             
             if (!but_populateBoard.Enabled) {
                 but_populateBoard.Enabled = true;
+                but_populateBoardFixed.Enabled = true;
                 but_simulationAdvance.Enabled = true;
             }
+
+            // Reset statistics
+            GameOfLifeLogic.cellBirths = 0;
+            GameOfLifeLogic.cellDeaths = 0;
+            GameOfLifeLogic.generation = 0;
         }
 
         private void but_populateBoard_Click(object sender, EventArgs e) {
-            Application.UseWaitCursor = true;
-
             GameOfLife.populateBoardRandom();
             Console.ForegroundColor = ConsoleColor.Yellow;
                 Console.WriteLine(" -> Done");
                 Console.ResetColor();
-
-            Application.UseWaitCursor = false;
+            
+            but_showSimulationBoard.Enabled = true;
+        }
+        
+        private void but_populateBoardFixed_Click(object sender, EventArgs e) {
+            GameOfLife.populateBoardFixed();
+            Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.WriteLine(" -> Done");
+                Console.ResetColor();
             
             but_showSimulationBoard.Enabled = true;
         }
@@ -104,6 +115,7 @@ namespace Game_Of_Life
             // Update statistics
             label_cellBirthsValue.Text = GameOfLifeLogic.cellBirths.ToString();
             label_cellDeathsValue.Text = GameOfLifeLogic.cellDeaths.ToString();
+            label_generationValue.Text = GameOfLifeLogic.generation.ToString();
         }
 
         private void check_verboseOutput_CheckedChanged(object sender, EventArgs e) {

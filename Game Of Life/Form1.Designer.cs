@@ -50,6 +50,9 @@ namespace Game_Of_Life
             this.check_verboseOutput = new System.Windows.Forms.CheckBox();
             this.label_renderHead = new System.Windows.Forms.Label();
             this.check_drawGrid = new System.Windows.Forms.CheckBox();
+            this.but_populateBoardFixed = new System.Windows.Forms.Button();
+            this.label_generationValue = new System.Windows.Forms.Label();
+            this.label_generationHead = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.input_boardDimensionX)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.input_boardDimensionY)).BeginInit();
             this.SuspendLayout();
@@ -65,8 +68,8 @@ namespace Game_Of_Life
             // 
             // but_applyBoardDimensions
             // 
-            this.but_applyBoardDimensions.BackColor = System.Drawing.SystemColors.Menu;
-            this.but_applyBoardDimensions.Location = new System.Drawing.Point(117, 25);
+            this.but_applyBoardDimensions.BackColor = System.Drawing.SystemColors.Control;
+            this.but_applyBoardDimensions.Location = new System.Drawing.Point(118, 24);
             this.but_applyBoardDimensions.Name = "but_applyBoardDimensions";
             this.but_applyBoardDimensions.Size = new System.Drawing.Size(43, 23);
             this.but_applyBoardDimensions.TabIndex = 1;
@@ -99,7 +102,7 @@ namespace Game_Of_Life
             // 
             // input_boardDimensionY
             // 
-            this.input_boardDimensionY.Location = new System.Drawing.Point(73, 26);
+            this.input_boardDimensionY.Location = new System.Drawing.Point(73, 25);
             this.input_boardDimensionY.Name = "input_boardDimensionY";
             this.input_boardDimensionY.Size = new System.Drawing.Size(38, 20);
             this.input_boardDimensionY.TabIndex = 6;
@@ -237,7 +240,7 @@ namespace Game_Of_Life
             // 
             this.label_renderHead.AutoSize = true;
             this.label_renderHead.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_renderHead.Location = new System.Drawing.Point(14, 217);
+            this.label_renderHead.Location = new System.Drawing.Point(15, 239);
             this.label_renderHead.Name = "label_renderHead";
             this.label_renderHead.Size = new System.Drawing.Size(96, 13);
             this.label_renderHead.TabIndex = 18;
@@ -246,7 +249,7 @@ namespace Game_Of_Life
             // check_drawGrid
             // 
             this.check_drawGrid.AutoSize = true;
-            this.check_drawGrid.Location = new System.Drawing.Point(17, 233);
+            this.check_drawGrid.Location = new System.Drawing.Point(18, 255);
             this.check_drawGrid.Name = "check_drawGrid";
             this.check_drawGrid.Size = new System.Drawing.Size(80, 17);
             this.check_drawGrid.TabIndex = 19;
@@ -254,12 +257,45 @@ namespace Game_Of_Life
             this.check_drawGrid.UseVisualStyleBackColor = true;
             this.check_drawGrid.CheckedChanged += new System.EventHandler(this.check_drawGrid_CheckedChanged);
             // 
+            // but_populateBoardFixed
+            // 
+            this.but_populateBoardFixed.Enabled = false;
+            this.but_populateBoardFixed.Location = new System.Drawing.Point(92, 52);
+            this.but_populateBoardFixed.Name = "but_populateBoardFixed";
+            this.but_populateBoardFixed.Size = new System.Drawing.Size(70, 23);
+            this.but_populateBoardFixed.TabIndex = 20;
+            this.but_populateBoardFixed.Text = "Shapes";
+            this.but_populateBoardFixed.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.but_populateBoardFixed.UseVisualStyleBackColor = true;
+            this.but_populateBoardFixed.Click += new System.EventHandler(this.but_populateBoardFixed_Click);
+            // 
+            // label_generationValue
+            // 
+            this.label_generationValue.AutoSize = true;
+            this.label_generationValue.Location = new System.Drawing.Point(73, 202);
+            this.label_generationValue.Name = "label_generationValue";
+            this.label_generationValue.Size = new System.Drawing.Size(13, 13);
+            this.label_generationValue.TabIndex = 22;
+            this.label_generationValue.Text = "0";
+            // 
+            // label_generationHead
+            // 
+            this.label_generationHead.AutoSize = true;
+            this.label_generationHead.Location = new System.Drawing.Point(14, 202);
+            this.label_generationHead.Name = "label_generationHead";
+            this.label_generationHead.Size = new System.Drawing.Size(62, 13);
+            this.label_generationHead.TabIndex = 21;
+            this.label_generationHead.Text = "Generation:";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
-            this.ClientSize = new System.Drawing.Size(202, 261);
+            this.ClientSize = new System.Drawing.Size(202, 284);
+            this.Controls.Add(this.label_generationValue);
+            this.Controls.Add(this.label_generationHead);
+            this.Controls.Add(this.but_populateBoardFixed);
             this.Controls.Add(this.check_drawGrid);
             this.Controls.Add(this.label_renderHead);
             this.Controls.Add(this.check_verboseOutput);
@@ -279,7 +315,7 @@ namespace Game_Of_Life
             this.Controls.Add(this.but_applyBoardDimensions);
             this.Controls.Add(this.label_boardDimensionsHead);
             this.Name = "Form1";
-            this.Text = "Conway\'s Game of Life";
+            this.Text = "golControl";
             ((System.ComponentModel.ISupportInitialize)(this.input_boardDimensionX)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.input_boardDimensionY)).EndInit();
             this.ResumeLayout(false);
@@ -309,6 +345,9 @@ namespace Game_Of_Life
         private System.Windows.Forms.CheckBox check_verboseOutput;
         private System.Windows.Forms.Label label_renderHead;
         public System.Windows.Forms.CheckBox check_drawGrid;
+        private System.Windows.Forms.Button but_populateBoardFixed;
+        private System.Windows.Forms.Label label_generationValue;
+        private System.Windows.Forms.Label label_generationHead;
     }
 }
 

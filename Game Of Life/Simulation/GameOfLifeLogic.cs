@@ -204,6 +204,8 @@ namespace Game_Of_Life.Simulation {
                 }
             }
 
+            GameOfLifeLogic.generation++;
+
             // Apply new board state
             updateBoard();
         }

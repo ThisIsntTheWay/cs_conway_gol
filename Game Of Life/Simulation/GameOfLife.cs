@@ -83,6 +83,37 @@ namespace Game_Of_Life
         }
 
         /// <summary>
+        /// Populates the simulation board using known shapes
+        /// </summary>
+        public static void populateBoardFixed() {
+            if (!hasInitialized) {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.Write("[X] Cannot populate board as it has not yet been initialized.");
+                Console.ResetColor();
+                return;
+            }
+
+            int x = simulationBoard.GetLength(0);
+            int y = simulationBoard.GetLength(1);
+
+            Console.ForegroundColor = ConsoleColor.Blue;
+            Console.WriteLine("Populating board with fixed shapes...");
+            Console.ResetColor();
+
+            // Populate array - Assuming at least 50x50
+            // Glider
+            var xMid = x / 2;
+            var yMid = y / 2;
+            
+            simulationBoard[xMid - 1, yMid]     = 1;    // > Top
+            simulationBoard[xMid, yMid + 1]     = 1;    // > Middle
+            simulationBoard[xMid + 1, yMid - 1] = 1;    // > Bottom
+            simulationBoard[xMid + 1, yMid]     = 1;    // > Bottom
+            simulationBoard[xMid + 1, yMid + 1] = 1;    // > Bottom
+
+        }
+
+        /// <summary>
         /// Toggles a cell state at a specific board position.
         /// </summary>
         /// <param name="x">X coordinate of target cell.</param>
