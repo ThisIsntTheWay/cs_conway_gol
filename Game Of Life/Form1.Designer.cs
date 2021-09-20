@@ -226,6 +226,7 @@ namespace Game_Of_Life
             this.check_verboseOutput.TabIndex = 17;
             this.check_verboseOutput.Text = "Verbose";
             this.check_verboseOutput.UseVisualStyleBackColor = true;
+            this.check_verboseOutput.CheckedChanged += new System.EventHandler(this.check_verboseOutput_CheckedChanged);
             // 
             // Form1
             // 

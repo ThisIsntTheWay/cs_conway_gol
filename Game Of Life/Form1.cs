@@ -88,7 +88,7 @@ namespace Game_Of_Life
         }
 
         private void check_autoSim_CheckedChanged(object sender, EventArgs e){
-            if (this.check_autoSim.Checked) {
+            if (check_autoSim.Checked) {
                 GameOfLifeLogic.simulationState = true;
             } else {
                 GameOfLifeLogic.simulationState = false;
@@ -101,6 +101,21 @@ namespace Game_Of_Life
             label_cellDeathsValue.Text = GameOfLifeLogic.cellDeaths.ToString();
         }
 
+        private void check_verboseOutput_CheckedChanged(object sender, EventArgs e) {
+            // Verbose output
+
+            if (check_verboseOutput.Checked) {
+                GameOfLifeLogic.verboseOutput = true;
+
+                // Disable auto-advance due to lag
+                check_autoSim.Checked = false;
+                check_autoSim.Enabled = false;
+            } else {
+                GameOfLifeLogic.verboseOutput = false;
+                check_autoSim.Enabled = true;
+            }
+        }
+
         private void timer_miscUI_Tick(object sender, EventArgs e) {
             currMillis = DateTimeOffset.Now.ToUnixTimeSeconds();
 
@@ -111,12 +126,6 @@ namespace Game_Of_Life
                     label_printStatus.Text = " ";
                     printedToUI = false;
                 }
-            }
-
-            if (check_verboseOutput.Checked) {
-                GameOfLifeLogic.verboseOutput = true;
-            } else {
-                GameOfLifeLogic.verboseOutput = false;
             }
         }
     }
