@@ -55,6 +55,9 @@ namespace Game_Of_Life
             this.label_generationHead = new System.Windows.Forms.Label();
             this.label_sysStatusText = new System.Windows.Forms.Label();
             this.timer_golLogic = new System.Windows.Forms.Timer(this.components);
+            this.label_simSpeedValue = new System.Windows.Forms.Label();
+            this.label_simSpeedHead = new System.Windows.Forms.Label();
+            this.scroll_simSpeed = new System.Windows.Forms.HScrollBar();
             ((System.ComponentModel.ISupportInitialize)(this.input_boardDimensionX)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.input_boardDimensionY)).BeginInit();
             this.SuspendLayout();
@@ -242,7 +245,7 @@ namespace Game_Of_Life
             // 
             this.label_renderHead.AutoSize = true;
             this.label_renderHead.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_renderHead.Location = new System.Drawing.Point(15, 228);
+            this.label_renderHead.Location = new System.Drawing.Point(12, 276);
             this.label_renderHead.Name = "label_renderHead";
             this.label_renderHead.Size = new System.Drawing.Size(96, 13);
             this.label_renderHead.TabIndex = 18;
@@ -251,7 +254,7 @@ namespace Game_Of_Life
             // check_drawGrid
             // 
             this.check_drawGrid.AutoSize = true;
-            this.check_drawGrid.Location = new System.Drawing.Point(18, 244);
+            this.check_drawGrid.Location = new System.Drawing.Point(15, 292);
             this.check_drawGrid.Name = "check_drawGrid";
             this.check_drawGrid.Size = new System.Drawing.Size(80, 17);
             this.check_drawGrid.TabIndex = 19;
@@ -293,7 +296,7 @@ namespace Game_Of_Life
             // 
             this.label_sysStatusText.AutoSize = true;
             this.label_sysStatusText.ForeColor = System.Drawing.Color.Crimson;
-            this.label_sysStatusText.Location = new System.Drawing.Point(12, 267);
+            this.label_sysStatusText.Location = new System.Drawing.Point(9, 315);
             this.label_sysStatusText.Name = "label_sysStatusText";
             this.label_sysStatusText.Size = new System.Drawing.Size(93, 13);
             this.label_sysStatusText.TabIndex = 23;
@@ -304,12 +307,44 @@ namespace Game_Of_Life
             this.timer_golLogic.Enabled = true;
             this.timer_golLogic.Tick += new System.EventHandler(this.timer_golLogic_Tick);
             // 
+            // label_simSpeedValue
+            // 
+            this.label_simSpeedValue.AutoSize = true;
+            this.label_simSpeedValue.Location = new System.Drawing.Point(83, 230);
+            this.label_simSpeedValue.Name = "label_simSpeedValue";
+            this.label_simSpeedValue.Size = new System.Drawing.Size(13, 13);
+            this.label_simSpeedValue.TabIndex = 26;
+            this.label_simSpeedValue.Text = "0";
+            // 
+            // label_simSpeedHead
+            // 
+            this.label_simSpeedHead.AutoSize = true;
+            this.label_simSpeedHead.Location = new System.Drawing.Point(15, 230);
+            this.label_simSpeedHead.Name = "label_simSpeedHead";
+            this.label_simSpeedHead.Size = new System.Drawing.Size(41, 13);
+            this.label_simSpeedHead.TabIndex = 25;
+            this.label_simSpeedHead.Text = "Speed:";
+            // 
+            // scroll_simSpeed
+            // 
+            this.scroll_simSpeed.Location = new System.Drawing.Point(15, 246);
+            this.scroll_simSpeed.Maximum = 200;
+            this.scroll_simSpeed.Minimum = 1;
+            this.scroll_simSpeed.Name = "scroll_simSpeed";
+            this.scroll_simSpeed.Size = new System.Drawing.Size(175, 17);
+            this.scroll_simSpeed.TabIndex = 27;
+            this.scroll_simSpeed.Value = 1;
+            this.scroll_simSpeed.Scroll += new System.Windows.Forms.ScrollEventHandler(this.scroll_simSpeed_Scroll);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
-            this.ClientSize = new System.Drawing.Size(202, 289);
+            this.ClientSize = new System.Drawing.Size(202, 332);
+            this.Controls.Add(this.scroll_simSpeed);
+            this.Controls.Add(this.label_simSpeedValue);
+            this.Controls.Add(this.label_simSpeedHead);
             this.Controls.Add(this.label_sysStatusText);
             this.Controls.Add(this.label_generationValue);
             this.Controls.Add(this.label_generationHead);
@@ -368,6 +403,9 @@ namespace Game_Of_Life
         private System.Windows.Forms.Label label_generationHead;
         private System.Windows.Forms.Label label_sysStatusText;
         private System.Windows.Forms.Timer timer_golLogic;
+        private System.Windows.Forms.Label label_simSpeedValue;
+        private System.Windows.Forms.Label label_simSpeedHead;
+        private System.Windows.Forms.HScrollBar scroll_simSpeed;
     }
 }
 

@@ -159,6 +159,16 @@ namespace Game_Of_Life
             }
         }
 
+        private void scroll_simSpeed_Scroll(object sender, ScrollEventArgs e) {
+            var simSpeed = scroll_simSpeed.Value;
+
+            // Prevent simsSpeed from reaching 0 to cirucment ArgumentOutOfRangeException
+            if (simSpeed < 1) simSpeed = 1;
+
+            label_simSpeedValue.Text = simSpeed + " t/s";
+            timer_golLogic.Interval = simSpeed;
+        }
+
         private void timer_miscUI_Tick(object sender, EventArgs e) {
             currMillis = DateTimeOffset.Now.ToUnixTimeSeconds();
 
