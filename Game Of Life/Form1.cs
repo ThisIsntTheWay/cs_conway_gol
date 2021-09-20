@@ -86,10 +86,10 @@ namespace Game_Of_Life
                 for (int a = 0; a < x; a++)
                 {
                     // Apply padding if neccesarry
-                    if (a < 10) {
-                        Console.Write("0{0} - ", a);
+                    if (a + 1 < 10) {
+                        Console.Write("0{0} - ", a + 1);
                     } else {
-                        Console.Write("{0} - ", a);
+                        Console.Write("{0} - ", a + 1);
                     }
 
                     for (int b = 0; b < y; b++) {
