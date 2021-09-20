@@ -153,6 +153,12 @@ namespace Game_Of_Life
             else { GameOfLifeLogic.drawGrid = false; }
         }
 
+        private void timer_golLogic_Tick(object sender, EventArgs e) {
+            if (GameOfLifeLogic.simulationState) {
+                GameOfLifeLogic.processGameRule();
+            }
+        }
+
         private void timer_miscUI_Tick(object sender, EventArgs e) {
             currMillis = DateTimeOffset.Now.ToUnixTimeSeconds();
 

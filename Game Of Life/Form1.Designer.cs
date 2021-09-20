@@ -54,6 +54,7 @@ namespace Game_Of_Life
             this.label_generationValue = new System.Windows.Forms.Label();
             this.label_generationHead = new System.Windows.Forms.Label();
             this.label_sysStatusText = new System.Windows.Forms.Label();
+            this.timer_golLogic = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.input_boardDimensionX)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.input_boardDimensionY)).BeginInit();
             this.SuspendLayout();
@@ -298,6 +299,11 @@ namespace Game_Of_Life
             this.label_sysStatusText.TabIndex = 23;
             this.label_sysStatusText.Text = "%SYS_STATUS%";
             // 
+            // timer_golLogic
+            // 
+            this.timer_golLogic.Enabled = true;
+            this.timer_golLogic.Tick += new System.EventHandler(this.timer_golLogic_Tick);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -361,6 +367,7 @@ namespace Game_Of_Life
         private System.Windows.Forms.Label label_generationValue;
         private System.Windows.Forms.Label label_generationHead;
         private System.Windows.Forms.Label label_sysStatusText;
+        private System.Windows.Forms.Timer timer_golLogic;
     }
 }
 

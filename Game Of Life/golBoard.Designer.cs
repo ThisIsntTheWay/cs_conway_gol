@@ -27,9 +27,7 @@ namespace Game_Of_Life {
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.picBox_golBoard = new System.Windows.Forms.PictureBox();
-            this.timer_golLogic = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.picBox_golBoard)).BeginInit();
             this.SuspendLayout();
             // 
@@ -40,11 +38,6 @@ namespace Game_Of_Life {
             this.picBox_golBoard.Size = new System.Drawing.Size(837, 437);
             this.picBox_golBoard.TabIndex = 0;
             this.picBox_golBoard.TabStop = false;
-            // 
-            // timer_golLogic
-            // 
-            this.timer_golLogic.Enabled = true;
-            this.timer_golLogic.Tick += new System.EventHandler(this.timer_golLogic_Tick);
             // 
             // golBoardView
             // 
@@ -65,6 +58,5 @@ namespace Game_Of_Life {
         #endregion
 
         public System.Windows.Forms.PictureBox picBox_golBoard;
-        public System.Windows.Forms.Timer timer_golLogic;
     }
 }

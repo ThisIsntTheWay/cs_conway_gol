@@ -35,10 +35,6 @@ namespace Game_Of_Life {
             picBox_golBoard.Height = height;
             picBox_golBoard.Width = width;
             */
-            
-            if (GameOfLifeLogic.simulationState) {
-                GameOfLifeLogic.processGameRule();
-            }
         }
 
         // https://swharden.com/CsharpDataVis/life/game-of-life-using-csharp.md.html
