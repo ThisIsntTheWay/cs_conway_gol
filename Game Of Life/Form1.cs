@@ -42,7 +42,7 @@ namespace Game_Of_Life
         
         /*  --------------------------------------------------------------------- */
         // https://stackoverflow.com/a/8645399
-        // have golBoard follow this form (control)
+        // Have golBoard follow this form (control)
         protected override void OnLoad(EventArgs e) {
             base.OnLoad(e);
 
@@ -51,6 +51,7 @@ namespace Game_Of_Life
             canvasForm.Height = 50; ;
             canvasForm.Location = new Point(this.Right, this.Top);
             canvasForm.Show();
+            canvasForm.BringToFront();
         }
 
         protected override void OnLocationChanged(EventArgs e) {
@@ -58,6 +59,7 @@ namespace Game_Of_Life
 
             if (canvasForm != null) {
                 canvasForm.Location = new Point(this.Right, this.Top);
+                canvasForm.BringToFront();
             }
         }
         /*  --------------------------------------------------------------------- */
