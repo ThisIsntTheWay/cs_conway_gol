@@ -13,6 +13,7 @@ using static Game_Of_Life.GameOfLife;
 namespace Game_Of_Life {
     public partial class golBoardView : Form {
         private PictureBox picBox = new PictureBox();
+        private int globCellSize = 10;
 
         public golBoardView() {
             InitializeComponent();
@@ -55,7 +56,6 @@ namespace Game_Of_Life {
                 gfx.Clear(Color.Black);
 
                 // Define sizes
-                var globCellSize = 10;
                 var cellSize = (grid) ? new Size(globCellSize - 1, globCellSize - 1) :
                                         new Size(globCellSize, globCellSize);
 
@@ -74,7 +74,7 @@ namespace Game_Of_Life {
                 }
                 
                 // Align image the correct way
-                bmp.RotateFlip(RotateFlipType.Rotate90FlipX);
+                //bmp.RotateFlip(RotateFlipType.Rotate90FlipX);
 
                 // Temp save bmp as jpg
                 //bmp.Save(@"C:\temp\golBoard.bmp", System.Drawing.Imaging.ImageFormat.Bmp);
@@ -95,6 +95,22 @@ namespace Game_Of_Life {
 
             this.Height = h + 40; picBox_golBoard.Height = h;
             this.Width = w + 18; picBox_golBoard.Width = w;
+        }
+
+        private void picBox_golBoard_Click(object sender, EventArgs e)
+        {
+            // Capture mouse clicks
+            MouseEventArgs me = (MouseEventArgs)e;
+            var coordinates = me.Location;
+            
+            // Account for cell sizes
+            var cell_x = (int)Math.Floor((decimal)coordinates.X / globCellSize);
+            var cell_y = (int)Math.Floor((decimal)coordinates.Y / globCellSize);
+
+            Console.WriteLine("MouseClick cell X/Y: {0}/{1}", cell_x, cell_y);
+
+            // Toggle cell
+            GameOfLife.toggleCell(cell_x, cell_y);
         }
     }
 }
