@@ -107,7 +107,8 @@ namespace Game_Of_Life {
             var cell_x = (int)Math.Floor((decimal)coordinates.X / globCellSize);
             var cell_y = (int)Math.Floor((decimal)coordinates.Y / globCellSize);
 
-            Console.WriteLine("MouseClick cell X/Y: {0}/{1}", cell_x, cell_y);
+            if (GameOfLifeLogic.verboseOutput)
+                Console.WriteLine("MouseClick cell X/Y: {0}/{1}", cell_x, cell_y);
 
             // Toggle cell
             GameOfLife.toggleCell(cell_x, cell_y);
