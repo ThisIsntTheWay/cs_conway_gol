@@ -28,9 +28,6 @@ namespace Game_Of_Life
             label_printStatus.Text = " ";
             label_sysStatusText.Text = " ";
 
-            // Set initial values for labels
-            label_simSpeedValue.Text = scroll_simSpeed.Value.ToString() + " t/s";
-
             // Read configuration
             var c = new Configurator();
             var f = c.parseConfiguration();
@@ -38,6 +35,9 @@ namespace Game_Of_Life
             check_drawGrid.Checked = f.drawGrid;
             check_verboseOutput.Checked = f.verbosity;
             scroll_simSpeed.Value = f.simSpeed;
+            
+            // Set initial values for labels
+            label_simSpeedValue.Text = scroll_simSpeed.Value.ToString() + " t/s";
         }
         
         /*  --------------------------------------------------------------------- */
