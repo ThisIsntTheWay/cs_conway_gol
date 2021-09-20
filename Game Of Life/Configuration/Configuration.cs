@@ -19,6 +19,7 @@ namespace Game_Of_Life.Configuration {
         /// <summary>
         /// Parses a configuration file
         /// </summary>
+        /// <returns>An object of type 'Configurator'.</returns>
         public Configurator parseConfiguration() {
             if (File.Exists(cfgFile)) {
                 string configContents = File.ReadAllText(cfgFile);
@@ -44,6 +45,14 @@ namespace Game_Of_Life.Configuration {
 
                 return c;
             }
+        }
+
+        /// <summary>
+        /// Saves the current configuration to var cfgFile based on the provided Configurator object.
+        /// </summary>
+        /// <param name="c">Configurator object to pass to.</param>
+        public void saveConfiguration(Configurator cIn) {
+            File.WriteAllText(cfgFile, JsonConvert.SerializeObject(cIn));
         }
     }
 }

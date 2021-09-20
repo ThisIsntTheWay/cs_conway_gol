@@ -18,6 +18,8 @@ namespace Game_Of_Life
     {
         private static bool printedToUI;
         private static long startMillis, currMillis;
+
+        private Configurator config = new Configurator();
         
         golBoardView canvasForm = new golBoardView();
 
@@ -32,9 +34,14 @@ namespace Game_Of_Life
             var c = new Configurator();
             var f = c.parseConfiguration();
 
+            // Verify and correct configuration values if needed
+            int simSpeed = f.simSpeed;
+            if (simSpeed > 1)
+                simSpeed = 100;
+
             check_drawGrid.Checked = f.drawGrid;
             check_verboseOutput.Checked = f.verbosity;
-            scroll_simSpeed.Value = f.simSpeed;
+            scroll_simSpeed.Value = simSpeed;
             
             // Set initial values for labels
             label_simSpeedValue.Text = scroll_simSpeed.Value.ToString() + " t/s";
@@ -169,23 +176,27 @@ namespace Game_Of_Life
         }
 
         private void check_verboseOutput_CheckedChanged(object sender, EventArgs e) {
-            // Verbose output
+            GameOfLifeLogic.verboseOutput = check_verboseOutput.Checked;
+            config.verbosity = check_verboseOutput.Checked;
 
             if (check_verboseOutput.Checked) {
-                GameOfLifeLogic.verboseOutput = true;
-
                 // Disable auto-advance due to lag
                 check_autoSim.Checked = false;
                 check_autoSim.Enabled = false;
             } else {
-                GameOfLifeLogic.verboseOutput = false;
                 check_autoSim.Enabled = true;
             }
+
+            // Save config
+            config.saveConfiguration(config);
         }
 
         private void check_drawGrid_CheckedChanged(object sender, EventArgs e) {
-            if (check_drawGrid.Checked) { GameOfLifeLogic.drawGrid = true; }
-            else { GameOfLifeLogic.drawGrid = false; }
+            config.drawGrid = check_drawGrid.Checked;
+            GameOfLifeLogic.drawGrid = check_drawGrid.Checked;
+
+            // Save configuration
+            config.saveConfiguration(config);
         }
 
         private void timer_golLogic_Tick(object sender, EventArgs e) {
@@ -204,6 +215,10 @@ namespace Game_Of_Life
 
             label_simSpeedValue.Text = scroll_simSpeed.Value + " t/s";
             timer_golLogic.Interval = simSpeed;
+            config.simSpeed = simSpeed;
+
+            // Save configuration
+            config.saveConfiguration(config);
         }
 
         private void timer_miscUI_Tick(object sender, EventArgs e) {
