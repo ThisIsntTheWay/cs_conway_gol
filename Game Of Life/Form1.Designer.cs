@@ -211,10 +211,11 @@ namespace Game_Of_Life
             // 
             this.label_printStatus.AutoSize = true;
             this.label_printStatus.ForeColor = System.Drawing.Color.MediumSeaGreen;
-            this.label_printStatus.Location = new System.Drawing.Point(91, 114);
+            this.label_printStatus.Location = new System.Drawing.Point(89, 87);
             this.label_printStatus.Name = "label_printStatus";
-            this.label_printStatus.Size = new System.Drawing.Size(0, 13);
+            this.label_printStatus.Size = new System.Drawing.Size(105, 13);
             this.label_printStatus.TabIndex = 16;
+            this.label_printStatus.Text = "%PRINT_STATUS%";
             // 
             // timer_miscUI
             // 

@@ -23,6 +23,9 @@ namespace Game_Of_Life
 
             golBoardView canvasForm = new golBoardView();
             canvasForm.Show();
+
+            // "Hide" printStatus label
+            label_printStatus.Text = " ";
         }
 
         private void but_applyBoardDimensions_Click(object sender, EventArgs e) {
