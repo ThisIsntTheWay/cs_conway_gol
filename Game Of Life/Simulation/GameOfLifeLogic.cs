@@ -9,7 +9,7 @@ namespace Game_Of_Life.Simulation {
     public class GameOfLifeLogic {
         private static int[,] cacheBoard;       // Copy of simulationBoard
         public static bool simulationState;     // State of simulation
-        public static bool drawGrid = false;
+        public static bool drawGrid = true;
         
         public static bool verboseOutput = false;
         public static bool verboseOutput2 = false;
