@@ -89,8 +89,9 @@ namespace Game_Of_Life
             GameOfLifeLogic.cellDeaths = 0;
             GameOfLifeLogic.generation = 0;
 
-            // Enable picBox
+            // Enable some elements
             canvasForm.picBox_golBoard.Enabled = true;
+            but_showSimulationBoard.Enabled = true;
         }
 
         private void but_populateBoard_Click(object sender, EventArgs e) {
