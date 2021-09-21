@@ -31,17 +31,22 @@ namespace Game_Of_Life
             label_sysStatusText.Text = " ";
 
             // Read configuration
-            var c = new Configurator();
-            var f = c.parseConfiguration();
+            var f = config.parseConfiguration();
 
             // Verify and correct configuration values if needed
             int simSpeed = f.simSpeed;
+            int renderSpeed = f.renderSpeed;
+
             if (simSpeed < 1)
                 simSpeed = 100;
+            if (renderSpeed < 1)
+                renderSpeed = 10;
 
+            // Apply configuration
             check_drawGrid.Checked = f.drawGrid;
             check_verboseOutput.Checked = f.verbosity;
             scroll_simSpeed.Value = simSpeed;
+            scroll_renderUpdateControl.Value = renderSpeed;
             
             // Set initial values for labels
             label_simSpeedValue.Text = scroll_simSpeed.Value.ToString() + " t/s";
@@ -60,6 +65,10 @@ namespace Game_Of_Life
             canvasForm.Location = new Point(this.Right, this.Top);
             canvasForm.Show();
             canvasForm.BringToFront();
+
+            // Repopulate config object
+            config.simSpeed = scroll_simSpeed.Value;
+            config.renderSpeed = scroll_renderUpdateControl.Value;
         }
 
         protected override void OnLocationChanged(EventArgs e) {
@@ -231,6 +240,9 @@ namespace Game_Of_Life
 
             label_renderUpdateValue.Text = scrollValue.ToString() + "ms";
             canvasForm.timer_golBoardRender.Interval = scrollValue;
+
+            config.renderSpeed = scrollValue;
+            config.saveConfiguration(config);
         }
 
         private void timer_miscUI_Tick(object sender, EventArgs e) {

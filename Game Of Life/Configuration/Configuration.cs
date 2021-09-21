@@ -13,6 +13,7 @@ namespace Game_Of_Life.Configuration {
     class Configurator {
         public bool drawGrid { get; set; }
         public bool verbosity { get; set; }
+        public int renderSpeed { get; set; }
         public int simSpeed { get; set; }
         private static string cfgFile = @".\config.json";
 
@@ -40,6 +41,7 @@ namespace Game_Of_Life.Configuration {
                 c.drawGrid = true;
                 c.verbosity = false;
                 c.simSpeed = 10;
+                c.renderSpeed = 100;
 
                 File.WriteAllText(cfgFile, JsonConvert.SerializeObject(c));
 
