@@ -141,6 +141,9 @@ namespace Game_Of_Life {
             var cell_x = (int)Math.Floor((decimal)coordinates.X / globCellSize);
             var cell_y = (int)Math.Floor((decimal)coordinates.Y / globCellSize);
 
+            if (GameOfLifeLogic.verboseOutput)
+                Console.WriteLine("[i] MouseCell X/Y: {0}/{1}", cell_x, cell_y);
+
             // Perform action based on flag
             if (isDrawing) { GameOfLife.setCell(cell_x, cell_y, true); }
             else if (isDeleting) { GameOfLife.setCell(cell_x, cell_y, false); }
