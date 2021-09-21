@@ -140,8 +140,8 @@ namespace Game_Of_Life
             int y_length = simulationBoard.GetLength(1);
 
             // Sanity checks
-            if (x > x_length) { return 1; }
-            if (y > y_length) { return 2; }
+            if (x < 0 || x > x_length) { return 1; }
+            if (y < 0 || y > y_length) { return 2; }
 
             // Set cell value, but "convert" bool to int beforehand
             int cellValue;

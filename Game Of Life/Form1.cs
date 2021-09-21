@@ -36,7 +36,7 @@ namespace Game_Of_Life
 
             // Verify and correct configuration values if needed
             int simSpeed = f.simSpeed;
-            if (simSpeed > 1)
+            if (simSpeed < 1)
                 simSpeed = 100;
 
             check_drawGrid.Checked = f.drawGrid;
