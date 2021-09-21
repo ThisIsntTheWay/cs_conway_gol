@@ -37,6 +37,7 @@ namespace Game_Of_Life {
             // 
             this.picBox_golBoard.BackgroundImage = global::Game_Of_Life.Properties.Resources.black_square;
             this.picBox_golBoard.Cursor = System.Windows.Forms.Cursors.Cross;
+            this.picBox_golBoard.Enabled = false;
             this.picBox_golBoard.Location = new System.Drawing.Point(1, 1);
             this.picBox_golBoard.Name = "picBox_golBoard";
             this.picBox_golBoard.Size = new System.Drawing.Size(161, 140);
