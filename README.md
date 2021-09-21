@@ -13,4 +13,8 @@ Has the following features:
 Config files are saved as .json in the binary root directory.
 
 ### Preview
-![](https://i.imgur.com/rMo9ytp.png)
+Board simulation in progress.
+![](https://i.imgur.com/rMo9ytp.png)  
+
+Interactively editing board.
+![](https://i.imgur.com/kIVaJNH.png)
