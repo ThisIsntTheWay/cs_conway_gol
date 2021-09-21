@@ -13,6 +13,9 @@ using static Game_Of_Life.GameOfLife;
 namespace Game_Of_Life {
     public partial class golBoardView : Form {
         private PictureBox picBox = new PictureBox();
+        
+        private bool isDrawing = false;
+        private bool isDeleting = false;
         private int globCellSize = 10;
 
         public golBoardView() {
@@ -100,24 +103,47 @@ namespace Game_Of_Life {
             }
         }
 
-        private void picBox_golBoard_Click(object sender, EventArgs e) {
-            // Capture mouse clicks
-            MouseEventArgs me = (MouseEventArgs)e;
-            var coordinates = me.Location;
-            
+        private void picBox_golBoard_MouseDown(object sender, MouseEventArgs e) {
+            // Set flags according to mousebutton input
+            switch (e.Button) {
+                case MouseButtons.Left:
+                    isDrawing = true;
+
+                    if (GameOfLifeLogic.verboseOutput)
+                        Console.WriteLine("[i] Drawing mode is active.");
+                    
+                    break;
+                case MouseButtons.Right:
+                    isDeleting = true;
+
+                    if (GameOfLifeLogic.verboseOutput)
+                        Console.WriteLine("[i] Deletion mode is active.");
+                    
+                    break;
+                default:
+                    isDeleting = false;
+                    isDrawing = false;
+                    break;
+            }
+
+        }
+
+        private void picBox_golBoard_MouseUp(object sender, MouseEventArgs e) {
+            // Reset flags
+            isDeleting = false;
+            isDrawing = false;
+        }
+
+        private void picBox_golBoard_MouseMove(object sender, System.Windows.Forms.MouseEventArgs e) {
+            var coordinates = e.Location;
+
             // Account for cell sizes
             var cell_x = (int)Math.Floor((decimal)coordinates.X / globCellSize);
             var cell_y = (int)Math.Floor((decimal)coordinates.Y / globCellSize);
 
-            if (GameOfLifeLogic.verboseOutput)
-                Console.WriteLine("MouseClick cell X/Y: {0}/{1}", cell_x, cell_y);
-
-            // Toggle cell
-            GameOfLife.toggleCell(cell_x, cell_y);
-        }
-
-        private void picBox_golBoard_MouseHover(object sender, EventArgs e) {
-
+            // Perform action based on flag
+            if (isDrawing) { GameOfLife.setCell(cell_x, cell_y, true); }
+            else if (isDeleting) { GameOfLife.setCell(cell_x, cell_y, false); }
         }
     }
 }

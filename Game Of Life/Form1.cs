@@ -45,6 +45,7 @@ namespace Game_Of_Life
             
             // Set initial values for labels
             label_simSpeedValue.Text = scroll_simSpeed.Value.ToString() + " t/s";
+            label_renderUpdateValue.Text = scroll_renderUpdateControl.Value.ToString() + "ms";
         }
         
         /*  --------------------------------------------------------------------- */
@@ -219,6 +220,13 @@ namespace Game_Of_Life
 
             // Save configuration
             config.saveConfiguration(config);
+        }
+
+        private void scroll_renderUpdateControl_Scroll(object sender, ScrollEventArgs e) {
+            var scrollValue = scroll_renderUpdateControl.Value;
+
+            label_renderUpdateValue.Text = scrollValue.ToString() + "ms";
+            canvasForm.timer_golBoardRender.Interval = scrollValue;
         }
 
         private void timer_miscUI_Tick(object sender, EventArgs e) {

@@ -59,6 +59,9 @@ namespace Game_Of_Life
             this.label_simSpeedValue = new System.Windows.Forms.Label();
             this.label_simSpeedHead = new System.Windows.Forms.Label();
             this.scroll_simSpeed = new System.Windows.Forms.HScrollBar();
+            this.scroll_renderUpdateControl = new System.Windows.Forms.HScrollBar();
+            this.label_renderUpdateValue = new System.Windows.Forms.Label();
+            this.label_renderUpdateHead = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.input_boardDimensionX)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.input_boardDimensionY)).BeginInit();
             this.SuspendLayout();
@@ -335,12 +338,46 @@ namespace Game_Of_Life
             this.scroll_simSpeed.Value = 1;
             this.scroll_simSpeed.Scroll += new System.Windows.Forms.ScrollEventHandler(this.scroll_simSpeed_Scroll);
             // 
+            // scroll_renderUpdateControl
+            // 
+            this.scroll_renderUpdateControl.Location = new System.Drawing.Point(15, 329);
+            this.scroll_renderUpdateControl.Maximum = 200;
+            this.scroll_renderUpdateControl.Minimum = 10;
+            this.scroll_renderUpdateControl.Name = "scroll_renderUpdateControl";
+            this.scroll_renderUpdateControl.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.scroll_renderUpdateControl.Size = new System.Drawing.Size(175, 17);
+            this.scroll_renderUpdateControl.SmallChange = 10;
+            this.scroll_renderUpdateControl.TabIndex = 30;
+            this.scroll_renderUpdateControl.Value = 100;
+            this.scroll_renderUpdateControl.Scroll += new System.Windows.Forms.ScrollEventHandler(this.scroll_renderUpdateControl_Scroll);
+            // 
+            // label_renderUpdateValue
+            // 
+            this.label_renderUpdateValue.AutoSize = true;
+            this.label_renderUpdateValue.Location = new System.Drawing.Point(101, 313);
+            this.label_renderUpdateValue.Name = "label_renderUpdateValue";
+            this.label_renderUpdateValue.Size = new System.Drawing.Size(13, 13);
+            this.label_renderUpdateValue.TabIndex = 29;
+            this.label_renderUpdateValue.Text = "0";
+            // 
+            // label_renderUpdateHead
+            // 
+            this.label_renderUpdateHead.AutoSize = true;
+            this.label_renderUpdateHead.Location = new System.Drawing.Point(15, 313);
+            this.label_renderUpdateHead.Name = "label_renderUpdateHead";
+            this.label_renderUpdateHead.Size = new System.Drawing.Size(82, 13);
+            this.label_renderUpdateHead.TabIndex = 28;
+            this.label_renderUpdateHead.Text = "Update interval:";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
-            this.ClientSize = new System.Drawing.Size(204, 316);
+            this.ClientSize = new System.Drawing.Size(204, 357);
+            this.Controls.Add(this.scroll_renderUpdateControl);
+            this.Controls.Add(this.label_renderUpdateValue);
+            this.Controls.Add(this.label_renderUpdateHead);
             this.Controls.Add(this.scroll_simSpeed);
             this.Controls.Add(this.label_simSpeedValue);
             this.Controls.Add(this.label_simSpeedHead);
@@ -408,6 +445,9 @@ namespace Game_Of_Life
         private System.Windows.Forms.Label label_simSpeedValue;
         private System.Windows.Forms.Label label_simSpeedHead;
         private System.Windows.Forms.HScrollBar scroll_simSpeed;
+        private System.Windows.Forms.HScrollBar scroll_renderUpdateControl;
+        private System.Windows.Forms.Label label_renderUpdateValue;
+        private System.Windows.Forms.Label label_renderUpdateHead;
     }
 }
 
