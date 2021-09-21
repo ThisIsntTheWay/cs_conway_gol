@@ -141,7 +141,7 @@ namespace Game_Of_Life {
             var cell_x = (int)Math.Floor((decimal)coordinates.X / globCellSize);
             var cell_y = (int)Math.Floor((decimal)coordinates.Y / globCellSize);
 
-            if (GameOfLifeLogic.verboseOutput)
+            if (GameOfLifeLogic.verboseOutput2)
                 Console.WriteLine("[i] MouseCell X/Y: {0}/{1}", cell_x, cell_y);
 
             // Perform action based on flag
