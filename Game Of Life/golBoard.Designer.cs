@@ -43,6 +43,7 @@ namespace Game_Of_Life {
             this.picBox_golBoard.Size = new System.Drawing.Size(161, 140);
             this.picBox_golBoard.TabIndex = 0;
             this.picBox_golBoard.TabStop = false;
+            this.picBox_golBoard.Click += new System.EventHandler(this.picBox_golBoard_Click);
             this.picBox_golBoard.MouseDown += new System.Windows.Forms.MouseEventHandler(this.picBox_golBoard_MouseDown);
             this.picBox_golBoard.MouseMove += new System.Windows.Forms.MouseEventHandler(this.picBox_golBoard_MouseMove);
             this.picBox_golBoard.MouseUp += new System.Windows.Forms.MouseEventHandler(this.picBox_golBoard_MouseUp);

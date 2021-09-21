@@ -148,5 +148,16 @@ namespace Game_Of_Life {
             if (isDrawing) { GameOfLife.setCell(cell_x, cell_y, true); }
             else if (isDeleting) { GameOfLife.setCell(cell_x, cell_y, false); }
         }
+
+        private void picBox_golBoard_Click(object sender, EventArgs e) {
+            MouseEventArgs me = (MouseEventArgs)e;
+            var coordinates = me.Location;
+
+            // Account for cell sizes
+            var cell_x = (int)Math.Floor((decimal)coordinates.X / globCellSize);
+            var cell_y = (int)Math.Floor((decimal)coordinates.Y / globCellSize);
+
+            GameOfLife.toggleCell(cell_x, cell_y);
+        }
     }
 }
