@@ -2,13 +2,14 @@
 An implementation of Conway's Game Of Life as a WinForms application in C#.
 
 Has the following features:
-- Board sizes up to 100x100.
+- Simulation of board sizes up to 100x100px.
 - Random board generation.
-- (Persistent) customization.
-   - Simulation speed
-   - Render speed
-   - Grid
-- On-the-fly board customization.
+   - Using the advanced algorithm "Random()"
+- (Persistent) customization options:
+   - Speed of simulaion
+   - Speed of renderer
+   - Grid rendering
+- On-the-fly board mutation.
 
 Config files are saved as .json in the binary root directory.
 
